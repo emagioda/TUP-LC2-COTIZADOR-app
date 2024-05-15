@@ -14,8 +14,7 @@ html {
     margin: 0 auto;
 }
 
-/* CABECERA */
-
+/************ CABECERA ************/
 header {
     height: 100px;
     border-radius: 20px;
@@ -46,8 +45,7 @@ header h1 {
     display: flex;
 }
 
-/* BARRA LATERAL */
-
+/************ BARRA LATERAL ************/
 section {
     width: 250px;
     background-color: #d7a94b;
@@ -56,12 +54,13 @@ section {
     border-radius: 25px;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 }
 
 section button{
     height: 40px;
-    width: 80%;
+    width: 85%;
     background-color: #7e5607;
     border-radius: 20px;
     border: 0px;
@@ -69,7 +68,7 @@ section button{
     color: #f9f9f9;
     text-align: left;
     margin: 3px 0;
-    padding-left: 30px;
+    padding: 0 20px;
 }
 section button a{
     padding-left: 5px;
@@ -81,8 +80,17 @@ section button i{
     color: #eda20b;
 }
 
-/* CONTENIDO PRINCIPAL */
-
+section button:hover{
+    background-color: #402c03;
+}
+.actual{
+    pointer-events: none;
+    background-color: #161107;
+    width: 80%;
+    align-items: flex-end;
+    justify-content: right;
+}
+/************ CONTENIDO PRINCIPAL ************/
 main {
     flex-grow: 1;
     margin: 10px;
@@ -115,10 +123,7 @@ main {
     border-radius: 25px;
 }
 
-/*************************************************/
-
-/* PIE DE PÁGINA */
-
+/************ PIE DE PÁGINA ************/
 footer {
     background-color: rgba(198, 134, 15, 0.627);
     border-radius: 25px;
@@ -156,5 +161,4 @@ footer {
     margin-top: 2px;
     text-align: center;
 }
-
 /*************************************************/

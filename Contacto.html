@@ -12,10 +12,12 @@
 
 <body>
     <div class="contenedor">
+        <!------------------------ CABECERA ------------------------>
         <header>
-            <h1><i class="fas fa-comments-dollar"></i></i> COTIZADOR DE MONEDAS</h1>
+            <h1><i class="fas fa-comments-dollar"></i> COTIZADOR DE MONEDAS</h1>
         </header>
         <div class="principal">
+            <!------------------------ BARRA LATERAL ------------------------>
             <section>
                 <div>
                     <button>
@@ -36,23 +38,71 @@
                     </button>
                 </div>
                 <div>
-                    <button>
+                    <button class="actual">
                         <i class="fa solid fa-address-book"></i>
                         <a href="Contacto.html"><b>CONTÁCTENOS</b></a>
                     </button>
                 </div>
             </section>
             <main>
+                <!------------------------ MIGAS DE PAN ------------------------>
                 <div class="migas_de_pan">
-                    <p><b>Usted está aquí:</b> 
+                    <p>
+                        <b>Usted está aquí:</b>
                         <a href="index.html">Inicio</a>
                         <a href="Contacto.html">/ Contacto</a>
                     </p>
                 </div>
-                <div class="contenido">contenido</div>
+                <!------------------------ CONTENIDO PRINCIPAL ------------------------>
+                <div id="contenido-principal">
+                    <div id="titulo">
+                        <h1>Contacto web cotizaciones</h1>
+                    </div>
+                    <div id="formulario">
+                        <h2>
+                            Datos de contacto
+                        </h2>
+                        <form action="" method="post">
+                            <div class="formLabel">
+                                <label for="nombre">Nombre: </label>
+                            </div>
+                            <input type="text" id="nombre" class="input1"> <br><br>
+                            <div class="formLabel">
+                                <label for="email">Email: </label>
+                            </div>
+                            <input type="text" id="email" class="input1"><br><br>
+                            <div class="formLabel">
+                                <label for="mensaje">Mensaje: </label>
+                            </div>
+                            <textarea name="mensaje" id="mensaje" class="input2"></textarea>
+                        </form>
+                    </div>
+                    <div id="texto">
+                        Si tiene alguna sugerencia o inconveniente
+                        por favor, complete el siguente formulario y envíelo.
+                        Lo contactaremos a la brevedad.
+                        <br>
+                        <br>
+                        Esta web esta desarrollada usando: <a href="https://dolarapi.com/">https://dolarapi.com</a>
+                    </div>
+                    <div id="contacto">
+                        <div id="contactoTexto">
+                            <h2>Contacto</h2>
+                            Universidad Tecnológica Nacional <br>
+                            Zeballos 1341 - S2000BQA <br>
+                            Rosario <br>
+                            0341-4481871
+                        </div>
+                        <img src="img/UTN_logo.jpg" alt="" id="contactoImagen">
+                    </div>
+                    <div id="formContBotones">
+                        <button id="formBotonLimpiar">Limpiar</button>
+                        <button id="formBotonEnviar">Enviar</button>
+                    </div>
+                </div>
             </main>
         </div>
-
+        <!------------------------ PIE DE PÁGINA ------------------------>
         <footer class="footer-container">
             <div class="footer-section">
                 <div>
@@ -96,5 +146,4 @@
         </footer>
     </div>
 </body>
-
 </html>
