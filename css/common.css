@@ -1,7 +1,7 @@
 body,
 html {
     font-family: sans-serif;
-    height: 100%; 
+    height: 100%;
     margin: 0;
     box-sizing: border-box;
 }
@@ -13,6 +13,8 @@ html {
     background-color: #f9f9f9;
     margin: 0 auto;
 }
+
+/* CABECERA */
 
 header {
     height: 100px;
@@ -29,7 +31,6 @@ header {
 
 header h1 {
     font-size: 42px;
-
     text-shadow:
         -2px -2px 0 #000000,
         2px -2px 0 #000000,
@@ -38,27 +39,85 @@ header h1 {
     color: rgb(255, 255, 255);
 }
 
+/*************************************************/
+
 .principal {
     flex-grow: 1;
     display: flex;
 }
 
+/* BARRA LATERAL */
+
 section {
-    width: 200px;
+    width: 250px;
     background-color: #d7a94b;
     margin: 10px;
+    padding-top: 12px;
     border-radius: 25px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
+
+section button{
+    height: 40px;
+    width: 80%;
+    background-color: #7e5607;
+    border-radius: 20px;
+    border: 0px;
+    font-size: 16px;
+    color: #f9f9f9;
+    text-align: left;
+    margin: 3px 0;
+    padding-left: 30px;
+}
+section button a{
+    padding-left: 5px;
+    text-decoration: none;
+    color: wheat;
+}
+
+section button i{
+    color: #eda20b;
+}
+
+/* CONTENIDO PRINCIPAL */
 
 main {
     flex-grow: 1;
-    padding: 20px;
     margin: 10px;
-    border-radius: 25px;
     text-align: center;
-    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
 }
+
+.migas_de_pan {
+    margin-bottom: 10px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.migas_de_pan a {
+    color: rgb(0, 0, 16);
+    text-decoration: none;
+}
+
+.migas_de_pan p {
+    margin: 0;
+}
+
+.contenido {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+    border-radius: 25px;
+}
+
+/*************************************************/
+
+/* PIE DE PÁGINA */
 
 footer {
     background-color: rgba(198, 134, 15, 0.627);
@@ -72,14 +131,14 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 5%;
-    
 }
 
 .footer-section>div:last-child {
     text-align: right;
     padding-top: 65px;
 }
-.footer-section ul{
+
+.footer-section ul {
     list-style-type: circle;
 }
 
@@ -93,7 +152,9 @@ footer {
     color: rgb(108, 81, 6);
 }
 
-.informacion-carrera{
+.informacion-carrera {
     margin-top: 2px;
     text-align: center;
 }
+
+/*************************************************/
