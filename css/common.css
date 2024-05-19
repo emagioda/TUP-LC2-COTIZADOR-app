@@ -146,7 +146,7 @@ main {
     margin: 0;
 }
 
-.contenido {
+.contenido-principal {
     flex-grow: 1;
     display: flex;
     justify-content: center;
