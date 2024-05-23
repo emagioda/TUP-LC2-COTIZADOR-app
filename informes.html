@@ -5,113 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informes</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="icon" href="img/coins-solid.svg" type="image/svg">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/pages/informes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="contenedor">
-        <!------------------------ CABECERA ------------------------>
-        <header>
-            <h1><i class="fas fa-comments-dollar"></i> COTIZADOR DE MONEDAS</h1>
-        </header>
-        <div class="principal">
-            <!------------------------ BARRA LATERAL ------------------------>
-            <section class="nav-bar">
-                <div>
-                    <button>
-                        <i class="fa solid fa-home"></i>
-                        <a href="index.html"><b>INICIO</b></a>
-                    </button>
-                </div>
-                <div>
-                    <button>
-                        <i class="fa solid fa-folder"></i>
-                        <a href="Miarchivo.html"><b>MI ARCHIVO</b></a>
-                    </button>
-                </div>
-                <div>
-                    <button class="actual">
-                        <i class="fa solid fa-file"></i>
-                        <a href="informes.html"><b>INFORMES</b></a>
-                    </button>
-                </div>
-                <div>
-                    <button>
-                        <i class="fa solid fa-address-book"></i>
-                        <a href="Contacto.html"><b>CONTÁCTENOS</b></a>
-                    </button>
-                </div>
-                <!------------------------ COMENTARIO ------------------------>
-                <div class="comentario">
-                    <div class="comentario-img">
-                        <img src="img/Elon_Musk.jpg" alt="Tesla">
-                    </div>
-                    <div class="comentario-contenido">
-                        <h2>Elon Musk</h2>
-                        <p>El diseño de la página es intuitivo y fácil de navegar. Puedo encontrar rápidamente las
-                            cotizaciones que necesito. <br>Muy recomendada!!</p>
-                    </div>
-                </div>
-            </section>
-            <main>
-                <!------------------------ MIGAS DE PAN ------------------------>
-                <div class="migas_de_pan">
-                    <p>
-                        <b>Usted está aquí:</b>
-                        <a href="index.html">Inicio</a> / Informes
-                    </p>
-                </div>
-                <!------------------------ CONTENIDO PRINCIPAL ------------------------>
-                <div class="contenido-principal">
-                    <iframe src="html/informes-code.html" frameborder="0"></iframe>
-                </div>
-            </main>
-        </div>
-        <!------------------------ PIE DE PÁGINA ------------------------>
-        <footer class="footer-container">
-            <div class="footer-section">
-                <div>
-                    <h2>INSTITUCIONAL</h2>
-                    <ul>
-                        <li><a href="#">¿Quiénes Somos?</a></li>
-                        <li><a href="#">Socios Estratégicos</a></li>
-                        <li><a href="#">Trabaje con Nosotros</a></li>
-                        <li><a href="#">Ayuda</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>ACCESOS</h2>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="Miarchivo.html">Mi Archivo</a></li>
-                        <li><a href="#">Informes</a></li>
-                        <li><a href="Contacto.html">Contáctenos</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>CONTACTO</h2>
-                    Universidad Tecnológica Nacional<br>
-                    ZEBALLOS 1341 - S2000BQA<br>
-                    ROSARIO<br>
-                    0341 - 4481871<br>
-                    <a href="Contacto.html">¡Escríbanos!</a><br>
-                </div>
-                <div>
-                    <p>
-                        <b>Desarrollado por</b><br>
-                        Juan Banquero <br>
-                        Emanuel Gioda (53472)<br>
-                        TUP8-2024
-                    </p>
-                </div>
-            </div>
-            <p class="informacion-carrera">
-                <i>TUP - Carrera de Laboratorio de Computación - Año: 2024</i>
-            </p>
-        </footer>
-    </div>
-</body>
+    <h2>Informes</h2>
 
+    <header>
+        <div id="contenedorHeader">
+            <label for="selectMoneda">Selección de moneda:</label>
+            <input list="listaSelect" name="selectMoneda" id="selectMoneda">
+            <datalist id="listaSelect">
+                <option value="Dolar Oficial"></option>
+                <option value="Dolar CCL"></option>
+                <option value="Peso Argentino"></option>
+            </datalist>
+
+            <div id="contenedorCompartir"><i class="fa solid fa-print fa-lg"></i> <a href="#">Compartir Información</a>
+            </div>
+        </div>
+        <img src="img/dolar-inflacion.jpg" alt="" id="graficas">
+    </header>
+    <main>
+        <table>
+            <thead>
+                <th>Moneda</th>
+                <th>Fecha</th>
+                <th>Compra</th>
+                <th>Venta</th>
+                <th>Variacion</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="5">Dolar Blue</td>
+                    <td>21/05/2024</td>
+                    <td>$1010</td>
+                    <td>$1025</td>
+                    <td><i class="fa solid fa-arrow-down"></i></i></td>
+                </tr>
+                <tr>
+                    <td>Dolar MEP</td>
+                    <td>$1010</td>
+                    <td>$1025</td>
+                    <td><i class="fa solid fa-arrow-up"></i></td>
+                </tr>
+                <tr>
+                    <td>Dolar Tarjeta</td>
+                    <td>$1010</td>
+                    <td>$1025</td>
+                    <td><i class="fa solid fa-arrow-up"></i></td>
+                </tr>
+                <tr>
+                    <td>Dolar Cripto</td>
+                    <td>$1010</td>
+                    <td>$1025</td>
+                    <td><i class="fa solid fa-arrow-down"></i></td>
+                </tr>
+                <tr>
+                    <td>Euro</td>
+                    <td>$1010</td>
+                    <td>$1025</td>
+                    <td><i class="fa solid fa-arrow-down"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
 </html>

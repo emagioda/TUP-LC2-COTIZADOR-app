@@ -1,0 +1,43 @@
+/*HEADER*/
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i {
+    color: rgb(190, 190, 190);
+}
+
+i:hover {
+    color: rgb(50, 144, 28);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*TABLA*/
+table {
+    border: 2px solid rgb(16, 112, 150);
+    border-radius: 10px;
+    background-color: rgb(240, 238, 238);
+    color: rgb(5, 72, 127);
+}
+
+tbody td {
+    height: 2vh;
+    width: 8%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(108, 140, 140);
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.tablaSeparador {
+    background-color: rgb(75, 111, 79);
+    border-radius: 5px;
+}

@@ -9,7 +9,7 @@ html {
 .contenedor {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     background-color: #f9f9f9;
     margin: 0 auto;
 }
@@ -25,7 +25,7 @@ header {
     align-items: center;
     background-image: url(../img/Fondo-Header.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: center center;
 }
 
 header h1 {
@@ -126,33 +126,20 @@ section button:hover{
 main {
     flex-grow: 1;
     margin: 10px;
-    text-align: center;
+    padding:0 ;
+    text-align: end;
     display: flex;
     flex-direction: column;
 }
-
-.migas_de_pan {
-    margin-bottom: 10px;
-    padding-right: 20px;
-    text-align: right;
-}
-
-.migas_de_pan a {
-    color: rgb(0, 0, 16);
-    text-decoration: none;
-}
-
-.migas_de_pan p {
-    margin: 0;
+.migas_de_pan p{
+    margin: 0px 10px 5px 0px;
 }
 
 .contenido-principal {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid 1px black;
+    border: 1px solid #000000;
     border-radius: 25px;
+    padding: 0px 10px;
 }
 
 /************ PIE DE PÁGINA ************/

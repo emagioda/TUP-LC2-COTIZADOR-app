@@ -1,0 +1,95 @@
+/*CABECERA*/
+
+header h2 {
+    text-align: center;
+}
+
+#contenedorHeader {
+    border: 1px solid rgb(34, 114, 153);
+    border-radius: 10px;
+    width: 45%;
+    height: 45px;
+    align-content: center;
+}
+
+div label {
+    margin-right: 20px;
+    padding-left: 5px;
+}
+
+div input {
+    width: 50%;
+    height: 20px;
+    border-radius: 5px;
+}
+
+header p {
+    font-size: 14px;
+    text-align: end;
+    padding-right: 5%;
+}
+
+
+/*TABLA DE COTIZACIONES*/
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    border: 1px solid rgb(198, 198, 238);
+    height: 50vh;
+}
+
+table tr {
+    text-align: center;
+}
+
+table {
+    border: 1px solid rgb(34, 114, 153);
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 35vw;
+
+}
+
+.celdaTipoMoneda {
+    width: 150px;
+    text-align: start;
+}
+
+.fila1 {
+    color: rgb(133, 157, 216);
+    font-size: small;
+}
+
+.fila2 {
+    color: rgb(37, 62, 109);
+    width: 60px;
+}
+
+#estrella1 {
+    margin-left: 10px;
+    color: rgb(214, 214, 214);
+}
+
+#estrella1:active {
+    color: rgb(241, 223, 24);
+}
+
+
+/*FOOTER*/
+
+#footerText1 {
+    font-size: 14px;
+    color: rgb(244, 85, 57);
+    font-style: italic;
+}
+
+#footerText2 {
+    font-size: 14px;
+    color: rgb(57, 101, 244);
+    font-style: italic;
+    text-align: end;
+}
