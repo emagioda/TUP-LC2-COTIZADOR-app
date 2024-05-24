@@ -5,9 +5,11 @@ body
     grid-template-rows: 20% 30% 30% 20%;
     margin-left: 2%;
     margin-right: 2%;
-
 }
 
+/* #titulo h2{
+
+} */
 
 #formulario
 {  
@@ -17,7 +19,6 @@ body
     grid-row-end: 5;
     background-color: rgb(247, 247, 247);
     border: 2px solid  rgb(201, 201, 201);
-
     border-radius: 10px 50px 10px 50px;
 }
 #formulario h2
@@ -53,7 +54,7 @@ body
     grid-row-end:  2;
     text-align: center;
     padding: auto;
-
+    margin: 10px 0;
 }
 
 #texto
@@ -80,6 +81,7 @@ body
     border: 2px solid rgb(226, 226, 226);
     border-radius: 10px;
     padding-left: 5%;    
+    background-color: white;
 }
 
 #contactoImagen
