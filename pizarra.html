@@ -13,13 +13,21 @@
     <header>
         <h2>Pizarra de cotizaciones</h2>
         <div id="contenedorHeader">
-            <label for="selectMoneda">Selección de moneda:</label>
-            <input list="listaSelect" name="selectMoneda" id="selectMoneda">
-            <datalist id="listaSelect">
-                <option value="Dolar Oficial"></option>
-                <option value="Dolar CCL"></option>
-                <option value="Peso Argentino"></option>
-            </datalist>
+            <label for="selectMoneda">Seleccione una moneda:</label>
+            <select id="selectMoneda">
+                <option value="" hidden></option>
+                <option value="Dolar Oficial">Dólar Oficial</option>
+                <option value="Dolar Blue">Dólar Blue</option>
+                <option value="Dolar Bolsa (MEP)">Dólar Bolsa (MEP)</option>
+                <option value="Dolar Contado Con Liqui (CCL)">Dólar Contado Con Liqui (CCL)</option>
+                <option value="Dolar Tarjeta">Dólar Tarjeta</option>
+                <option value="Dolar Mayorista">Dólar Mayorista</option>
+                <option value="Dolar Cripto">Dólar Cripto</option>
+                <option value="Euro">Euro</option>
+                <option value="Real Brasileño">Real Brasileño</option>
+                <option value="Peso Chileno">Peso Chileno</option>
+                <option value="Peso Uruguayo">Peso Uruguayo</option>
+            </select>
         </div>
         <p>Datos actualizados: 19/08/1986</p>
     </header>

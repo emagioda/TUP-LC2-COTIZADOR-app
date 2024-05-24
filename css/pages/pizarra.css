@@ -1,15 +1,22 @@
 /*CABECERA*/
+html {
+    font-family: sans-serif;
+}
 
 header h2 {
     text-align: center;
+    margin: 10px 0;
 }
 
 #contenedorHeader {
     border: 1px solid rgb(34, 114, 153);
     border-radius: 10px;
-    width: 45%;
+    width: 90vh;
+    display: flex;
+    align-items: center;
     height: 45px;
     align-content: center;
+    margin: 0 100px;
 }
 
 div label {
@@ -17,46 +24,46 @@ div label {
     padding-left: 5px;
 }
 
-div input {
-    width: 50%;
-    height: 20px;
-    border-radius: 5px;
-}
-
 header p {
     font-size: 14px;
     text-align: end;
-    padding-right: 5%;
+    padding: 0 10px 10px 0;
+    margin: 0;
 }
-
 
 /*TABLA DE COTIZACIONES*/
 main {
+    font-size: 20px;
+    background-color: rgb(249, 238, 224);
+    border: 1px solid rgb(198, 198, 238);
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    border-radius: 10px;
-    border: 1px solid rgb(198, 198, 238);
-    height: 50vh;
-}
-
-table tr {
-    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 52vh;
+    margin: 0px 60px;
+    padding: 10px;
+    min-width: max-content;
 }
 
 table {
     border: 1px solid rgb(34, 114, 153);
-    margin-bottom: 5px;
-    margin-top: 10px;
-    margin-left: 10px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px 0 5px 10px;
     border-radius: 10px;
-    width: 35vw;
-
+    height: 25%;
+    box-shadow: 2px 2px 10px rgba(12, 12, 12, 0.5);
+    /* min-width: max-content; */
 }
 
+
 .celdaTipoMoneda {
-    width: 150px;
+    width: 180px;
     text-align: start;
+    padding: 0 0 0 20px;
+
 }
 
 .fila1 {
@@ -66,11 +73,15 @@ table {
 
 .fila2 {
     color: rgb(37, 62, 109);
-    width: 60px;
+    width: 100px;
 }
 
 #estrella1 {
-    margin-left: 10px;
+
+    display: flex;
+    text-align: right;
+    justify-content: end;
+    align-items: end;
     color: rgb(214, 214, 214);
 }
 
@@ -78,13 +89,13 @@ table {
     color: rgb(241, 223, 24);
 }
 
-
 /*FOOTER*/
 
 #footerText1 {
     font-size: 14px;
     color: rgb(244, 85, 57);
     font-style: italic;
+    margin: 10px 0;
 }
 
 #footerText2 {
@@ -92,4 +103,5 @@ table {
     color: rgb(57, 101, 244);
     font-style: italic;
     text-align: end;
+    margin: 0;
 }
