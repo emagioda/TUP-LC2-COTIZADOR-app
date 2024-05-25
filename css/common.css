@@ -26,7 +26,6 @@ header {
     background-image: url(../img/Fondo-Header.jpg);
     background-size: cover;
     background-position: center center;
-    min-width: 880px;
 }
 
 header h1 {
@@ -44,6 +43,7 @@ header h1 {
 .principal {
     flex-grow: 1;
     display: flex;
+    flex-wrap: wrap;
 }
 
 /************ BARRA LATERAL ************/
@@ -57,10 +57,9 @@ header h1 {
     display: flex;
     flex-direction: column;
     min-width: 235px;
-
 }
 
-section button{
+section button {
     height: 40px;
     width: 85%;
     background-color: #7e5607;
@@ -72,22 +71,23 @@ section button{
     margin: 3px 0;
     padding: 0 20px;
     box-shadow: 2px 2px 5px rgba(12, 12, 12, 0.5);
-    
 }
-section button a{
+
+section button a {
     padding-left: 5px;
     text-decoration: none;
     color: wheat;
 }
 
-section button i{
+section button i {
     color: #eda20b;
 }
 
-section button:hover{
+section button:hover {
     background-color: #402c03;
 }
-.actual{
+
+.actual {
     pointer-events: none;
     background-color: #161107;
     width: 80%;
@@ -95,6 +95,7 @@ section button:hover{
     align-items: flex-end;
     justify-content: right;
 }
+
 /************ COMENTARIO ************/
 .comentario {
     display: flex;
@@ -105,7 +106,7 @@ section button:hover{
     border-radius: 15%;
 }
 
-.comentario-img{
+.comentario-img {
     display: flex;
     height: 100px;
     width: 100px;
@@ -113,11 +114,11 @@ section button:hover{
     padding-left: 5px;
 }
 
-.comentario-img img{
+.comentario-img img {
     border-radius: 50%;
 }
 
-.comentario-contenido{
+.comentario-contenido {
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -126,40 +127,41 @@ section button:hover{
     font-size: 12px;
     padding: 0px 6px;
 }
+
 /************ CONTENIDO PRINCIPAL ************/
 main {
     flex-grow: 1;
     margin: 10px;
-    padding:0 ;
+    padding: 0;
     text-align: end;
     display: flex;
     flex-direction: column;
-    
 }
-.migas_de_pan p{
+
+.migas_de_pan p {
     margin: 0px 10px 5px 0px;
 }
 
-.migas_de_pan a{
+.migas_de_pan a {
     text-decoration: none;
     color: #000000;
 }
 
 .contenido-principal {
     flex-grow: 1;
-    /* border: 1px solid #000000; */
     border-radius: 25px;
     padding: 0px 10px;
     min-width: 600px;
     background: linear-gradient(to bottom, rgb(255, 201, 130), rgba(0, 0, 0, 0));
 }
-.contenido-principal iframe{
+
+.contenido-principal iframe {
     width: 100%;
     height: 100%;
-    border: none; 
-    overflow: hidden; 
-    margin: 0; 
-    padding: 0; 
+    border: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 /************ PIE DE PÁGINA ************/
@@ -168,7 +170,6 @@ footer {
     border-radius: 25px;
     margin: 10px;
     font-size: 14px;
-    min-width: 880px;
 }
 
 .footer-section {
@@ -178,7 +179,7 @@ footer {
     gap: 5%;
 }
 
-.footer-section>div:last-child {
+.footer-section > div:last-child {
     text-align: right;
     padding-top: 65px;
 }
@@ -201,4 +202,95 @@ footer {
     margin-top: 2px;
     text-align: center;
 }
+
 /*************************************************/
+
+/************ MEDIA QUERIES ************/
+
+@media (max-width: 992px) {
+    .principal {
+        flex-direction: column;
+    }
+
+    .nav-bar {
+        width: 100%;
+        min-width: 100%;
+        margin: 10px 0; 
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-bar div {
+        width: 48%;
+        margin-bottom: 5px;
+    }
+
+    .comentario {
+        display: none;
+    }
+
+    main {
+        margin: 10px 0;
+        min-width: 100%;
+    }
+
+    .contenido-principal {
+        padding: 0;
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 24px;
+        height: auto;
+        padding: 20px;
+        min-width: 80%;
+    }
+
+    footer{
+        min-width: 90%;  
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .nav-bar button {
+        width: 90%;
+    }
+
+    .comentario {
+        flex-direction: column;
+        margin: 20px 10px;
+    }
+
+    .comentario-img {
+        margin-bottom: 10px;
+    }
+}
+
+
+/* OTRA FORMA DE VER EL FOOTER, ME GUSTO MAS LA QUE ESTA AHORA */
+
+/* @media (max-width: 576px) {
+    .footer-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section > div {
+        padding-top: 20px;
+    }
+
+    .nav-bar {
+        flex-direction: column;
+    }
+
+    .nav-bar div {
+        width: 100%;
+        margin: 5px 0;
+    }
+} */

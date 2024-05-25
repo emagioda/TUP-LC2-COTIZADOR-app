@@ -1,4 +1,4 @@
-/*CABECERA*/
+/* CABECERA */
 html {
     font-family: sans-serif;
 }
@@ -12,12 +12,13 @@ header h2 {
     background-color: blanchedalmond;
     border: 1px solid rgb(153, 91, 34);
     border-radius: 10px;
-    width: 480px;
+    width: 90%;
+    max-width: 480px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     height: 45px;
     align-content: center;
-    margin: 0 70px;
 }
 
 div label {
@@ -30,15 +31,15 @@ header p {
     text-align: end;
     padding: 0 10px 10px 0;
     margin: 0;
-    
 }
 
-header i{
+header i {
     font-size: 25px;
     padding: 0 0 0 15px;
 }
 
-/*TABLA DE COTIZACIONES*/
+/* TABLA DE COTIZACIONES */
+
 main {
     font-size: 20px;
     background-color: rgb(249, 238, 224);
@@ -62,11 +63,15 @@ table {
     border-radius: 10px;
     height: 25%;
     box-shadow: 2px 2px 10px rgba(12, 12, 12, 0.5);
+    width: 40%;
+    max-width: 400px;
+    min-width: 300px;
 }
 
 
 .celdaTipoMoneda {
     width: 180px;
+    min-width: min-content;
     text-align: start;
     padding: 0 0 0 20px;
 
@@ -95,8 +100,8 @@ table {
     color: rgb(241, 223, 24);
 }
 
-/*FOOTER*/
 
+/* FOOTER */
 #footerText1 {
     font-size: 14px;
     color: rgb(244, 85, 57);
@@ -111,3 +116,13 @@ table {
     text-align: end;
     margin: 0;
 }
+
+@media (max-width: 1000px) {
+    main {
+        flex-direction: column;
+        height: auto; 
+        min-width: 350px;
+        margin: 0;
+    }
+}
+
