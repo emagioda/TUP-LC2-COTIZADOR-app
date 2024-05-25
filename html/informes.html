@@ -11,21 +11,29 @@
 
 <body>
     <h2>Informes</h2>
-
     <header>
         <div id="contenedorHeader">
-            <label for="selectMoneda">Selección de moneda:</label>
-            <input list="listaSelect" name="selectMoneda" id="selectMoneda">
-            <datalist id="listaSelect">
-                <option value="Dolar Oficial"></option>
-                <option value="Dolar CCL"></option>
-                <option value="Peso Argentino"></option>
-            </datalist>
+            <label for="selectMoneda"> <b>Seleccione una moneda:</b></label>
+            <select id="selectMoneda">
+                <option value="" hidden></option>
+                <option value="Todas">TODAS</option>
+                <option value="Dolar Oficial">Dólar Oficial</option>
+                <option value="Dolar Blue">Dólar Blue</option>
+                <option value="Dolar Bolsa">Dólar Bolsa (MEP)</option>
+                <option value="Dolar Contado Con Liqui">Dólar Contado Con Liqui (CCL)</option>
+                <option value="Dolar Tarjeta">Dólar Tarjeta</option>
+                <option value="Dolar Mayorista">Dólar Mayorista</option>
+                <option value="Dolar Cripto">Dólar Cripto</option>
+                <option value="Euro">Euro</option>
+                <option value="Real Brasileño">Real Brasileño</option>
+                <option value="Peso Chileno">Peso Chileno</option>
+                <option value="Peso Uruguayo">Peso Uruguayo</option>
+            </select>
 
             <div id="contenedorCompartir"><i class="fa solid fa-print fa-lg"></i> <a href="#">Compartir Información</a>
             </div>
         </div>
-        <img src="img/dolar-inflacion.jpg" alt="" id="graficas">
+        <img src="../img/dolar-inflacion.jpg" alt="" id="graficas">
     </header>
     <main>
         <table>

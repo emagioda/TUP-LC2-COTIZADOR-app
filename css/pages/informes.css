@@ -11,14 +11,16 @@ header {
 }
 
 #contenedorHeader {
+    background-color: blanchedalmond;
+    border: 1px solid rgb(153, 91, 34);
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid rgb(34, 114, 153);
-    background-color: rgb(249, 250, 252);
+    align-content: center;
     border-radius: 10px;
-    width: 30vw;
-    height: 50vh;
+    width: 480px;
+    height: 70px;
+    margin: 0 70px;
 }
 
 #graficas {
@@ -47,7 +49,7 @@ img {
 }
 
 div label {
-    padding-left: 5px;
+    padding: 10px 10px;
 }
 
 div input {
@@ -55,6 +57,7 @@ div input {
     height: 5vh;
     border-radius: 5px;
 }
+
 
 /*TABLA*/
 table {
