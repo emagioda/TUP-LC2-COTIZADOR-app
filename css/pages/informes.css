@@ -1,79 +1,103 @@
+html {
+    font-family: sans-serif;
+}
+
 body h2 {
     text-align: center;
 }
 
-/*SELECTOR / GRAFICAS*/
-header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 5px;
-}
+/* SELECTOR Y GRÁFICO */
 
 #contenedorHeader {
-    background-color: blanchedalmond;
+    background-color: rgb(255, 225, 161);
+    color: rgb(57, 55, 50);
     border: 1px solid rgb(153, 91, 34);
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
     border-radius: 10px;
-    width: 480px;
+    width: 25%;
+    min-width: max-content;
     height: 70px;
-    margin: 0 70px;
 }
 
 #graficas {
-    border: 2px solid rgb(68, 84, 119);
+    border: 1px solid rgb(153, 91, 34);
     border-radius: 10px;
-    width: 70vw;
-    height: 50vh;
+    height: 70vh;
 }
 
 img {
-    width: 70vw;
-    height: 50vh;
+    width: 100%;
 }
 
-#contenedorCompartir {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: 2px solid rgb(107, 107, 150);
-    background-color: aliceblue;
-    width: 25vw;
-    height: 8vh;
-    margin-top: 28vh;
+caption {
+    text-align: start;
+    margin-bottom: 15px;
+
 }
 
-div label {
-    padding: 10px 10px;
+caption i {
+    color: rgb(83, 127, 147);
 }
 
-div input {
-    width: 25vw;
-    height: 5vh;
+div select {
+    width: 80%;
     border-radius: 5px;
 }
 
 
-/*TABLA*/
+/* TABLA */
 table {
     margin-top: 5px;
     width: 100%;
-    border: 2px solid rgb(16, 112, 150);
-    border-radius: 10px;
-    background-color: rgb(240, 238, 238);
-    color: rgb(5, 72, 127);
+    border: 2px solid rgb(129, 104, 60);
+    border-radius: 5px;
+    background-color: rgb(255, 225, 161);
+    color: rgb(57, 55, 50);
+    font-size: larger;
+    box-shadow: 0px 0px 10px 2px rgb(170, 131, 58);
 }
 
 tbody td {
     height: 2vh;
+    width: 8%;
     text-align: center;
-    background-color: rgb(108, 140, 140);
-    border-radius: 5px;
-    color: white;
-    font-weight: 700;
+    color: rgb(249, 235, 154);
+    background-color: rgb(137, 98, 59);
+    border-radius: 2px;
+    font-size: medium;
+}
+
+.celdaMoneda {
+    font-size: large;
+    font-weight: 800;
+}
+
+#flechaBaja {
+    color: rgb(162, 5, 5);
+    background-color: rgb(255, 146, 146);
+    border-radius: 4px;
+}
+
+#flechaSuba {
+    color: rgb(36, 102, 0);
+    background-color: rgb(164, 242, 165);
+    border-radius: 4px;
+}
+
+@media (min-width: 800px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+}
+
+@media (min-width: 580px) {
+    div label {
+        padding: 8px 8px;
+    }
 }

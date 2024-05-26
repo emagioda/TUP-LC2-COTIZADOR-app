@@ -1,117 +1,121 @@
-body
-{
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 20% 30% 30% 20%;
-    margin-left: 2%;
-    margin-right: 2%;
+html{
+    font-family: sans-serif;
 }
 
-/* #titulo h2{
-
-} */
-
-#formulario
-{  
+#titulo {
     grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 5;
-    background-color: rgb(247, 247, 247);
-    border: 2px solid  rgb(201, 201, 201);
-    border-radius: 10px 50px 10px 50px;
-}
-#formulario h2
-{
-    text-align: center;
-}
-.formLabel
-{
-    display: inline-block;
-    width: 25%;
-    padding-left: 3%;
-}
-.input1
-{   
-    width: 50%;
-    height: 30%;
-    border: 1px solid rgb(223, 223, 223);
-}
-.input2
-{
-    width: 50%;
-    height: 70%;
-    border: 1px solid rgb(223, 223, 223);
-    resize: none;
-    vertical-align: middle;
-}
-
-#titulo
-{   
-    grid-column-start: 1;
-    grid-column-end: 6 ;
-    grid-row-start: 1 ;
-    grid-row-end:  2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
     text-align: center;
     padding: auto;
     margin: 10px 0;
 }
 
-#texto
-{
-    grid-column-start: 3;
-    grid-column-end: 6 ;
-    grid-row-start: 2 ;
-    grid-row-end:  3;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-top: 5%;
+/* FORMULARIO DE CONTACTO */
+
+#formulario {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    background-color: rgb(247, 247, 247);
+    border: 2px solid rgb(201, 201, 201);
+    border-radius: 10px 50px 10px 50px;
 }
 
-#contacto
-{
-    display: flex;
-    justify-content:space-between;
-    grid-column-start: 3;
-    grid-column-end: 6 ;
-    grid-row-start: 3 ;
-    grid-row-end:  5;
-    margin-left: 5%;
-    margin-right: 5%;
-    border: 2px solid rgb(226, 226, 226);
-    border-radius: 10px;
-    padding-left: 5%;    
-    background-color: white;
+#formulario h2 {
+    text-align: center;
 }
 
-#contactoImagen
-{
-    width: 30%;
-    height: 80%;
-    flex-direction: row;
-    vertical-align:auto;
-    padding: 3%;
+.formLabel {
+    display: inline-block;
+    width: 25%;
+    padding-left: 3%;
 }
 
-#contactoTexto
-{
-    flex-direction: row;
+.input1 {
+    width: 60%;
+    height: 30px;
+    border: 1px solid rgb(223, 223, 223);
 }
 
-#formBotonLimpiar
-{   
+.input2 {
+    width: 40%;
+    height: 20vh;
+    border: 1px solid rgb(223, 223, 223);
+    vertical-align: middle;
+}
+
+#mensaje {
+    width: 60%;
+    height: 90px;
+    resize: inherit;
+}
+
+#formBotonLimpiar {
     margin-left: 15%;
-    margin-top: 3%;
+    margin-top: 20px;
     width: 35%;
     height: 40px;
     border-radius: 10px;
     border: 1px solid rgb(221, 221, 221);
 }
-#formBotonEnviar
-{
+
+#formBotonEnviar {
     width: 35%;
     height: 40px;
     border-radius: 10px;
     background-color: rgb(152, 207, 98);
     border: 1px solid rgb(221, 221, 221);
+}
+
+/* DATOS DE LA INSTITUCIÓN */
+#texto {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5%;
+}
+
+#contacto {
+    display: flex;
+    justify-content: space-between;
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 2px solid rgb(226, 226, 226);
+    border-radius: 10px;
+    padding-left: 5%;
+    background-color: white;
+}
+
+#contactoImagen {
+    width: 30%;
+    height: 80%;
+    flex-direction: row;
+    vertical-align: auto;
+    padding: 3%;
+}
+
+#contactoTexto {
+    flex-direction: row;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 980px) {
+    body {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 20% 30% 30% 20%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
 }

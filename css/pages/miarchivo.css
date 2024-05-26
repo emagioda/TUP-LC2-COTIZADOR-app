@@ -1,16 +1,28 @@
-/*HEADER*/
+html {
+    font-family: sans-serif;
+}
+
+/* TÍTULO */
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-i {
-    color: rgb(190, 190, 190);
+header h3 i {
+    color: rgb(151, 110, 55);
 }
 
-i:hover {
-    color: rgb(50, 144, 28);
+header h3 i:hover {
+    color: rgb(214, 202, 152);
+}
+
+td i {
+    color: rgb(255, 255, 255);
+}
+
+td i:hover {
+    color: rgb(173, 158, 100);
 }
 
 main {
@@ -19,25 +31,27 @@ main {
     align-items: center;
 }
 
-/*TABLA*/
+/* TABLA */
 table {
-    border: 2px solid rgb(16, 112, 150);
-    border-radius: 10px;
-    background-color: rgb(240, 238, 238);
-    color: rgb(5, 72, 127);
+    border: 2px solid rgb(129, 104, 60);
+    border-radius: 5px;
+    background-color: rgb(255, 225, 161);
+    color: rgb(57, 55, 50);
+    font-size: larger;
+    box-shadow: 0px 0px 10px 2px rgb(170, 131, 58);
 }
 
 tbody td {
     height: 2vh;
     width: 8%;
     text-align: center;
-    color: rgb(255, 255, 255);
-    background-color: rgb(108, 140, 140);
-    border-radius: 5px;
-    font-weight: 700;
+    color: rgb(249, 235, 154);
+    background-color: rgb(137, 98, 59);
+    border-radius: 2px;
+    font-size: medium;
 }
 
-.tablaSeparador {
-    background-color: rgb(75, 111, 79);
-    border-radius: 5px;
+.celdaFecha {
+    font-size: large;
+    font-weight: 800;
 }
