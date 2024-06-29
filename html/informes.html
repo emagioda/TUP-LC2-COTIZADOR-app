@@ -7,6 +7,8 @@
     <title>Informes</title>
     <link rel="stylesheet" href="../css/pages/informes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../js/pages/informes.js" defer></script>
+    <script src="../js/pages/Chart.min.js"></script>
 </head>
 
 <body>
@@ -31,8 +33,10 @@
                 <option value="Peso Uruguayo">Peso Uruguayo</option>
             </select>
         </div>
-        <img src="../img/dolar-inflacion.jpg" alt="" id="graficas">
+        <canvas id="graficas" height="20vh" width="80%"></canvas>
+
     </header>
+
     <!------------------------ TABL ------------------------>
     <main>
         <table>
@@ -53,7 +57,7 @@
                     <td>21/05/2024</td>
                     <td>$1010</td>
                     <td>$1025</td>
-                    <td><i class="fa solid fa-arrow-down" id="flechaBaja"></i></i></td>
+                    <td><i class="fa solid fa-arrow-down" id="flechaBaja"></i></td>
                 </tr>
                 <tr>
                     <td>Dolar MEP</td>

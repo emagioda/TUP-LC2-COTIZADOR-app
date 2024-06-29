@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-    <!-- <link rel="stylesheet" href="../css/common.css"> -->
     <link rel="stylesheet" href="../css/pages/contacto.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <script src="../js/pages/contacto.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>       
+    <script type="text/javascript"> emailjs.init('CcBydL0h8LKhz67zL')</script>
 </head>
 
 <body>
@@ -15,31 +17,31 @@
         <h2>Contacto web cotizaciones</h2>
     </div>
         <!------------------------ FORMULARIO DE CONTACTO ------------------------>
-    <div id="formulario">
-        <h2>
-            Datos de contacto
-        </h2>
-        <form action="" method="post">
+        
+        <form id="formulario" action="" method="post">
+            <h2>
+                Datos de contacto
+            </h2>
+
             <div class="formLabel">
-                <label for="nombre">Nombre: </label>
+              <label for="from_name">Nombre:</label>
             </div>
 
-            <input type="text" id="nombre" class="input1"> <br><br>
+            <input type="text" name="from_name" id="from_name" class="input1"><br><br>
 
             <div class="formLabel">
                 <label for="email">Email: </label>
             </div>
-
-            <input type="text" id="email" class="input1"><br><br>
+            <input type="email" id="email" class="input1"><br><br>
 
             <div class="formLabel">
-                <label for="mensaje">Mensaje: </label>
+                <label for="message">Mensaje: </label>
             </div>
-            <textarea name="mensaje" id="mensaje" class="input2"></textarea>
-
+            <textarea name="message" id="message" class="input2"></textarea>
+          
             <button type="reset" id="formBotonLimpiar">Limpiar</button>
-            <button type="submit" id="formBotonEnviar">Enviar</button>
-
+            <input type="submit" id="formBotonEnviar" value="Enviar">
+            
         </form>
     </div>
 
@@ -65,6 +67,7 @@
         </div>
         <img src="../img/UTN_logo.jpg" alt="" id="contactoImagen">
     </div>
+
 </body>
 
 </html>

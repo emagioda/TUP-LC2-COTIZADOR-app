@@ -47,7 +47,7 @@ html{
     vertical-align: middle;
 }
 
-#mensaje {
+#message {
     width: 60%;
     height: 90px;
     resize: inherit;
@@ -62,7 +62,7 @@ html{
     border: 1px solid rgb(221, 221, 221);
 }
 
-#formBotonEnviar {
+#formBotonEnviar  {
     width: 35%;
     height: 40px;
     border-radius: 10px;

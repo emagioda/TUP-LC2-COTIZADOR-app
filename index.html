@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="icon" href="img/coins-solid.svg" type="image/svg">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <script src="js/common.js" defer></script>
 </head>
 
 <body>
@@ -20,25 +21,25 @@
             <!------------------------ BARRA LATERAL ------------------------>
             <section class="nav-bar">
                 <div>
-                    <button class="actual">
+                    <button class="actual" id="btnInicio">
                         <i class="fa solid fa-home"></i>
                         <a href="#"><b>INICIO</b></a>
                     </button>
                 </div>
                 <div>
-                    <button>
+                    <button class="normal" id="btnMiarchivo"> 
                         <i class="fa solid fa-folder"></i>
                         <a href="#"><b>MI ARCHIVO</b></a>
                     </button>
                 </div>
                 <div>
-                    <button>
+                    <button class="normal" id="btnInformes">
                         <i class="fa solid fa-file"></i>
                         <a href="#"><b>INFORMES</b></a>
                     </button>
                 </div>
                 <div>
-                    <button>
+                    <button class="normal" id="btnContactos">
                         <i class="fa solid fa-address-book"></i>
                         <a href="#"><b>CONTÁCTENOS</b></a>
                     </button>
@@ -50,8 +51,7 @@
                     </div>
                     <div class="comentario-contenido">
                         <h2>Elon Musk</h2>
-                        <p>El diseño de la página es intuitivo y fácil de navegar. Puedo encontrar rápidamente las
-                            cotizaciones que necesito. <br>Muy recomendada!!</p>
+                        <p>El diseño de la página es intuitivo. Puedo encontrar siempre las cotizaciones que necesito. ¡Muy recomendada!</p>
                     </div>
                 </div>
             </section>
@@ -66,14 +66,8 @@
                 <!------------------------ CONTENIDO PRINCIPAL ------------------------>
                 <div class="contenido-principal">
 
-                    <iframe src="html/pizarra.html"> </iframe>
+                    <iframe src="html/pizarra.html" id="iframe1"> </iframe>
 
-                    <!-- <iframe src="html/miarchivo.html"> </iframe> -->
-
-                    <!-- <iframe src="html/informes.html"> </iframe> -->
-
-                    <!-- <iframe src="html/contacto.html"> </iframe> -->
-                    
                 </div>
             </main>
         </div>
@@ -92,10 +86,10 @@
                 <div>
                     <h2>ACCESOS</h2>
                     <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Mi Archivo</a></li>
-                        <li><a href="#">Informes</a></li>
-                        <li><a href="#">Contáctenos</a></li>
+                        <li><a href="#" id="footerInicio">Inicio</a></li>
+                        <li><a href="#" id="footerMiArchivo">Mi archivo</a></li>
+                        <li><a href="#" id="footerInformes">Informes</a></li>
+                        <li><a href="#" id="footerContactenos">Contáctenos</a></li>
                     </ul>
                 </div>
                 <div>
@@ -104,7 +98,7 @@
                     ZEBALLOS 1341 - S2000BQA<br>
                     ROSARIO<br>
                     0341 - 4481871<br>
-                    <a href="#">¡Escríbanos!</a><br>
+                    <a href="#" id="footerEscribanos">¡Escríbanos!</a><br>
                 </div>
                 <div>
                     <p>
@@ -123,25 +117,3 @@
 </body>
 
 </html>
-
-<!-- 
-    COMENTARIOS SOBRE EL TRABAJO PRÁCTICO
-
-Los botones de la barra lateral, las migas de pan y los links del footer no funcionan, ya que lo que nosotros planteamos 
-fue una estructura más eficiente a la hora de mantener el código por lo que agregamos un iframe que vaya mostrando el contenido principal
-manteniendo el mismo marco en todas las páginas. 
-Nos pareció poco práctico copiar y pegar el marco (Header, Barra lateral y Footer) en cada página ya que a la hora de modificar algo,
-teniamos que replicar lo mismo en cada html.
-Por el momento, la forma de visualizar cada página es comentando y descomentando los iframe dentro del main (CONTENIDO PRINCIPAL)
-Luego cuando debamos aplicarle JS, los botones y links funcionaran correctamente.
-
-Los botones de la barra lateral, las migas de pan y los enlaces del footer no funcionan. ya que decidimos plantear una estructura más eficiente 
-para el mantenimiento del código utilizando un iframe que muestra el contenido principal, manteniendo el mismo marco en todas las páginas.
-
-Nos pareció poco práctico copiar y pegar el marco (header, barra lateral y footer) en cada página individual, ya que cualquier modificación 
-en el marco requería replicar los cambios en cada archivo HTML.
-
-Por el momento, la forma de visualizar cada página es comentando y descomentando los iframes dentro del main (CONTENIDO PRINCIPAL). 
-Posteriormente, cuando implementemos el JavaScript, los botones y enlaces funcionarán correctamente.
-
--->
