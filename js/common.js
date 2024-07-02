@@ -5,6 +5,10 @@
 *  Materia: Laboratorio de computación II                                       *       
 ********************************************************************************/
 
+
+/********************************************************************************
+* COMENTARIOS                                                                   *
+*********************************************************************************/
 const comentarios = [
     {
         img: 'img/Elon_Musk.jpg',
@@ -112,29 +116,28 @@ btnFooterEscribanos.addEventListener('click', function(event) {
 
 let array_cotizacion=[]
 
-function fetch_datos(){
-    
-    fetch("https://dolarapi.com/v1/dolares").then(response => response.json()).then(data => array_cotizacion[0] =data)
-    fetch("https://dolarapi.com/v1/cotizaciones/eur").then(response => response.json()).then(data => array_cotizacion[1] =data );
-    fetch("https://dolarapi.com/v1/cotizaciones/brl").then(response => response.json()).then(data => array_cotizacion[2] =data );
-    fetch("https://dolarapi.com/v1/cotizaciones/clp").then(response => response.json()).then(data => array_cotizacion[3] =data );
-    fetch("https://dolarapi.com/v1/cotizaciones/uyu").then(response => response.json()).then(data => array_cotizacion[4] =data );
+async function fetch_datos()
+{    
+    await fetch("https://dolarapi.com/v1/dolares").then(response => response.json()).then(data => array_cotizacion[0] =data)
+    await fetch("https://dolarapi.com/v1/cotizaciones/eur").then(response => response.json()).then(data => array_cotizacion[1] =data );
+    await fetch("https://dolarapi.com/v1/cotizaciones/brl").then(response => response.json()).then(data => array_cotizacion[2] =data );
+    await fetch("https://dolarapi.com/v1/cotizaciones/clp").then(response => response.json()).then(data => array_cotizacion[3] =data );
+    await fetch("https://dolarapi.com/v1/cotizaciones/uyu").then(response => response.json()).then(data => array_cotizacion[4] =data );
 
-    console.log(array_cotizacion[1])
+    array_cotizacion[5] = "5/5/2002"
 
-    //Ver porque si saco el delay no se ejecuta bien el localstorage
-    setTimeout(function(){
-        localStorage.setItem("CotizacionActual", JSON.stringify(array_cotizacion))
-    },50) 
+    localStorage.setItem("CotizacionActual", JSON.stringify(array_cotizacion))
 }
 
 document.addEventListener("DOMContentLoaded", function(){
       
     fetch_datos()
+
 })
+
 
  setInterval(function(){
     
     fetch_datos()
     
- },30000)
+ },300000)
