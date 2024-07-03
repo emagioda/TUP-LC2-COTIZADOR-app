@@ -6,7 +6,7 @@
 ********************************************************************************/
 
 /********************************************************************************
-* GENERAR TABLA                                                                 *
+* FUNCION: GENERAR TABLA                                                        *
 ********************************************************************************/
 let main = document.querySelector("main");
 
@@ -17,18 +17,17 @@ let moneda_marcada = [false,false,false,false,false,false,false,false,false,fals
 Uso este array en la llamada a la funcion 'generar_tabla()' para identificar luego en que moneda 
 hace "click" el usuario para guardar los datos 
 */
-
-const lista_monedas = ["usd_oficial",
-                        "usd_blue",
-                        "usd_bolsa",
-                        "usd_cc",
-                        "usd_mayorista",
-                        "usd_cripto",
-                        "usd_tarjeta",
-                        "euro",
-                        "brasilero",
-                        "chileno",
-                        "uruguayo"]
+const lista_monedas = ["Oficial",
+                        "Blue",
+                        "Bolsa",
+                        "Contado con liquidación",
+                        "Mayorista",
+                        "Cripto",
+                        "Tarjeta",
+                        "Euro",
+                        "Real Brasileño",
+                        "Peso Chileno",
+                        "Peso Uruguayo"]
 
 
 function generar_tabla(datos, tipo_moneda)
@@ -50,6 +49,7 @@ function generar_tabla(datos, tipo_moneda)
     elemento_i.className = "fa solid fa-star fa-lg"
     elemento_i.id = "estrella1"
 
+    
 
     //Lee el array donde se guarda el estado de las estrellas y le asigna "azul" si True o "gray" si False
     for (let i=0; i<lista_monedas.length;++i)
@@ -71,15 +71,14 @@ function generar_tabla(datos, tipo_moneda)
 
         //Llamada a funcion de guardar los datos de usuarios en local storage
         guardarDatos(datos)
+
         for (let i=0; i<lista_monedas.length;++i)
         {
             if (lista_monedas[i] == tipo_moneda)      
             {
                 if (moneda_marcada[i]==true){
-                    moneda_marcada[i]=false
                     elemento_i.style.color="gray"
                 }else{
-                    moneda_marcada[i]=true
                     elemento_i.style.color="blue"
                 }
             }  
@@ -137,7 +136,7 @@ function generar_tabla(datos, tipo_moneda)
 
 
 /********************************************************************************
-* GUARDA COTIZACIONES DE USUARIO EN LOCAL STORAGE                               *
+* FUNCION: GUARDA COTIZACIONES DE USUARIO EN LOCAL STORAGE                      *
 ********************************************************************************/
 
 function guardarDatos(datos) {
@@ -171,14 +170,36 @@ function guardarDatos(datos) {
 }
 
 /********************************************************************************
-* FILTRAR LA SELECCIÓN DE MONEDAS DE LA LISTA E IMPRIMIR TABLA                  *
+* FUNCION: TRAE LAS COTIZACIONES GUARDADAS Y GENERA LOS ESTADOS DE LAS ESTRELLAS*
 ********************************************************************************/
+function array_estrellas(){
 
+    cotizaciones = JSON.parse(localStorage.getItem("cotizaciones"))
+    
+    if (cotizaciones.length > 0)
+    {
+       for (let i=0; i<cotizaciones.length;++i){
+
+            for (let j=0; j<moneda_marcada.length;++j){
+                
+                if (cotizaciones[i]["moneda"] == lista_monedas[j]){
+                    moneda_marcada[j] = true
+                }                
+            }
+       }
+    }
+}
+
+/********************************************************************************
+* FUNCION: FILTRAR LA SELECCIÓN DE MONEDAS DE LA LISTA E IMPRIMIR TABLA                  *
+********************************************************************************/
 let array_cotizacion = JSON.parse(localStorage.getItem("CotizacionActual"));
 const selecMoneda = document.getElementById("selectMoneda");
 
 selecMoneda.addEventListener("change", function()
 {
+    
+    array_estrellas()
 
     while(main.lastChild){
         main.removeChild(main.lastChild)
@@ -244,10 +265,8 @@ selecMoneda.addEventListener("change", function()
 })
 
 /********************************************************************************
-* FECHA Y HORA DE ACTUALIZACIÓN                                                 *
+* FUNCION: FECHA Y HORA DE ACTUALIZACIÓN                                                 *
 ********************************************************************************/
-
-// Actualiza la fecha y hora.
 function actualizarFechaHora() {
     let actual_date = new Date();
     let dia = actual_date.getDate().toString().padStart(2, '0');
@@ -256,15 +275,24 @@ function actualizarFechaHora() {
     let hora = actual_date.getHours().toString().padStart(2, '0');
     let minutos = actual_date.getMinutes().toString().padStart(2, '0');
 
-    // Se da formato a la fecha y hora.
     let fecha_actualizacion = `Datos actualizados: ${dia}/${mes}/${año} - ${hora}:${minutos} Hs.`;
 
-    // Muestra la fecha y hora en la página.
     document.getElementById("fecha_actualizacion").textContent = fecha_actualizacion;
 }
 
-// Actualiza la fecha y hora cada 5 minutos.
 setInterval(actualizarFechaHora, 300000);
 
-// Muestra la fecha y hora al cargar la página.
 actualizarFechaHora();
+
+
+/********************************************************************************
+* GENERAL                                                                       *
+********************************************************************************/
+
+for (let i=0;i<7;++i){
+    generar_tabla(array_cotizacion[0][i],lista_monedas[i]);
+}   
+generar_tabla(array_cotizacion[1],lista_monedas[7]);
+generar_tabla(array_cotizacion[2],lista_monedas[8]);
+generar_tabla(array_cotizacion[3],lista_monedas[9]);
+generar_tabla(array_cotizacion[4],lista_monedas[10]);
