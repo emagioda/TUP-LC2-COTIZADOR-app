@@ -1,4 +1,14 @@
-// Carga las monedas guardadas en el localStorage al cargar la página.
+/********************************************************************************
+*  Archivo: miarchivo.js                                                        *
+*  Autores: Emanuel Gioda / Juan M. Banquero                                    *
+*  Fecha:   03-072024                                                           *
+*  Materia: Laboratorio de computación II                                       *       
+********************************************************************************/
+
+/********************************************************************************
+* CARGAR MONEDAS GUARDADAS                                                      *
+********************************************************************************/
+
 function cargarMonedasGuardadas() {
     let monedasGuardadas = JSON.parse(localStorage.getItem("cotizaciones")) || [];
     let tablaMonedas = document.getElementById("tablaMonedas");
@@ -79,7 +89,9 @@ function cargarMonedasGuardadas() {
     });
 }
 
-// Borra una moneda del localStorage y recargar la página.
+/********************************************************************************
+* BORRA MONEDAS GUARDADAS EN LOCALSTORAGE                                       *
+********************************************************************************/
 function borrarMoneda(fecha, moneda) {
     let monedasGuardadas = JSON.parse(localStorage.getItem("cotizaciones")) || [];
     let nuevasMonedasGuardadas = [];
@@ -91,18 +103,19 @@ function borrarMoneda(fecha, moneda) {
         }
     }
 
-    // Guarda las nuevas cotizaciones en el localStorage.
     localStorage.setItem("cotizaciones", JSON.stringify(nuevasMonedasGuardadas));
+    
     // Recarga la página para actualizar la tabla.
     location.reload();
 }
 
-// Imprime el contenido de la página.
+/********************************************************************************
+* IMPRIMIR LA VISTA ACTUAL                                                      *
+********************************************************************************/
 function imprSelec(nombre) {
     var contenido = document.getElementById(nombre).innerHTML;
     var contenidoOriginal = document.body.innerHTML;
 
-    // Estilos para la impresión.
     var estiloImpresion = `
         <style>
             table {
@@ -125,12 +138,12 @@ function imprSelec(nombre) {
     document.body.innerHTML = contenidoOriginal;
 }
 
-
-// Ejecuta la función cargarMonedasGuardadas cuando el contenido del DOM se haya cargado completamente.
+/********************************************************************************
+* EVENTO: CARGAR OBJETO DOM                                                     *
+********************************************************************************/
 document.addEventListener("DOMContentLoaded", function () {
     cargarMonedasGuardadas();
 
-    // Agrega la funcion de imprimir al icono de impresora.
     let iconoImpresora = document.querySelector(".fa-print");
     if (iconoImpresora) {
         iconoImpresora.addEventListener("click", function () {

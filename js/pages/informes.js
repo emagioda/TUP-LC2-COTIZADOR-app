@@ -1,4 +1,11 @@
 /********************************************************************************
+*  Archivo: informes.js                                                         *
+*  Autores: Emanuel Gioda / Juan M. Banquero                                    *
+*  Fecha:   03-07-2024                                                          *
+*  Materia: Laboratorio de computación II                                       *       
+********************************************************************************/
+
+/********************************************************************************
 * TABLA: funcion que imprime la tabla dentro del objeto main                    *
 ********************************************************************************/
 let main = document.querySelector("main")
