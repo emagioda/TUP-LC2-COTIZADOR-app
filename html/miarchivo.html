@@ -4,127 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Archivo</title>
+    <title>Informes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/pages/miarchivo.css">
+    <link rel="stylesheet" href="../css/pages/informes.css">
     <script src="../js/pages/miarchivo.js" defer></script>
 </head>
 
 <body>
-    <!------------------------ TÍTULO ------------------------>
     <header>
         <h3>Mi Archivo <i class="fa thin fa-print fa-lg"></i></h3>
     </header>
-    <!------------------------ TABLA ------------------------>
-    <main> <!--
-        <table>
-            <thead>
-                <th>Fecha</th>
-                <th>Moneda</th>
-                <th>Compra</th>
-                <th>Venta</th>
-                <th>Accion</th>
-            </thead>
-            <tbody>
-               
-                <tr>
-                    <td rowspan="5" class="celdaFecha">26/06/2024</td>
-                    <td>Dolar Blue</td>
-                    <td>$1012</td>
-                    <td>$1028</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar MEP</td>
-                    <td>$1011</td>
-                    <td>$1027</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar Tarjeta</td>
-                    <td>$1013</td>
-                    <td>$1026</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar Cripto</td>
-                    <td>$1014</td>
-                    <td>$1029</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Euro</td>
-                    <td>$1015</td>
-                    <td>$1028</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-               
-                <tr>
-                    <td rowspan="5" class="celdaFecha">25/05/2024</td>
-                    <td>Dolar Blue</td>
-                    <td>$1012</td>
-                    <td>$1026</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar MEP</td>
-                    <td>$1010</td>
-                    <td>$1024</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar Tarjeta</td>
-                    <td>$1013</td>
-                    <td>$1027</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar Cripto</td>
-                    <td>$1014</td>
-                    <td>$1025</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Euro</td>
-                    <td>$1015</td>
-                    <td>$1026</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                
-                <tr>
-                    <td rowspan="5" class="celdaFecha">24/05/2024</td>
-                    <td>Dolar Blue</td>
-                    <td>$1011</td>
-                    <td>$1027</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar MEP</td>
-                    <td>$1012</td>
-                    <td>$1026</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar Tarjeta</td>
-                    <td>$1013</td>
-                    <td>$1028</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Dolar Cripto</td>
-                    <td>$1014</td>
-                    <td>$1029</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                <tr>
-                    <td>Euro</td>
-                    <td>$1016</td>
-                    <td>$1025</td>
-                    <td><i class="fa solid fa-eraser fa-lg"></td>
-                </tr>
-                
-            </tbody>
-        </table>    -->
+    <main>
+        <div id="imprimir">
+            <table>
+                <thead>
+                    <th>Fecha</th>
+                    <th>Moneda</th>
+                    <th>Compra</th>
+                    <th>Venta</th>
+                    <th>Acción</th>
+                </thead>
+                <tbody id="tablaMonedas">
+                </tbody>
+            </table>
+        </div>
+        <p id="sinDatos" class="sinDatos">No hay datos guardados hasta el momento.</p>
     </main>
 </body>
 

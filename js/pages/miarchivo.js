@@ -1,90 +1,140 @@
+// Carga las monedas guardadas en el localStorage al cargar la página.
+function cargarMonedasGuardadas() {
+    let monedasGuardadas = JSON.parse(localStorage.getItem("cotizaciones")) || [];
+    let tablaMonedas = document.getElementById("tablaMonedas");
+    let sinDatos = document.getElementById("sinDatos");
 
-/********************************************************************************
-* TABLA: funcion que imprime la tabla dentro del objeto main                    *
-********************************************************************************/
-let main = document.querySelector("main")
-
-function generar_tabla(moneda, fecha, compra, venta, accion){
-
-    //Tabla
-    let tabla = document.createElement("table");
-    let thead = document.createElement("thead")
-    let tbody = document.createElement("tbody")
-
-    let th1 = document.createElement("th")
-    let th2 = document.createElement("th")
-    let th3 = document.createElement("th")
-    let th4 = document.createElement("th")
-    let th5 = document.createElement("th")
-
-    th1.textContent = "Fecha"
-    th2.textContent = "Moneda"
-    th3.textContent = "Compra"
-    th4.textContent = "Venta"
-    th5.textContent = "Acción"
-
-    thead.appendChild(th1)
-    thead.appendChild(th2)
-    thead.appendChild(th3)
-    thead.appendChild(th4)
-    thead.appendChild(th5)
-
-
-    let tr = [fecha.length] 
-    let td = []
-
-    for (let fila=0; fila< fecha.length ; ++fila)
-    {
-
-        tr[fila] = document.createElement("tr")
-
-        //Crea columnas
-        for (let col=0; col < 5 ; ++col)
-        {
-            td[col] = document.createElement("td")    
-        }
-
-        td[0].textContent = fecha[fila]
-        td[1].textContent = moneda[fila]
-        td[2].textContent = compra[fila]
-        td[3].textContent = venta[fila]
-        td[4].textContent = accion[fila]     
-
-
-        for (let i=0; i < 5 ; ++i)
-        {
-            tr[fila].appendChild(td[i])        
-        }
-
-        tbody.appendChild(tr[fila])
-
+    // Se muestra un mensaje si no hay datos guardados.
+    if (monedasGuardadas.length === 0) {
+        sinDatos.style.display = "block";
+    } else {
+        sinDatos.style.display = "none";
     }
 
-    //Agrega Head y Caption a la Tabla
-    tabla.appendChild(thead)
-    tabla.appendChild(tbody)
+    let monedasPorFecha = {};
 
-    //Agrega tabla al main
-    main.appendChild(tabla)
+    // Organiza las monedas por fecha.
+    monedasGuardadas.forEach(moneda => {
+        if (!monedasPorFecha[moneda.fecha]) {
+            monedasPorFecha[moneda.fecha] = [];
+        }
+        monedasPorFecha[moneda.fecha].push(moneda);
+    });
 
+    // Ordena las fechas de la más reciente a la más antigua.
+    let fechasOrdenadas = Object.keys(monedasPorFecha).sort((a, b) => {
+        let [diaA, mesA, añoA] = a.split('/').map(Number);
+        let [diaB, mesB, añoB] = b.split('/').map(Number);
+
+        if (añoA !== añoB) return añoB - añoA;
+        if (mesA !== mesB) return mesB - mesA;
+        return diaB - diaA;
+    });
+
+    // Crea las filas de la tabla
+    fechasOrdenadas.forEach(fecha => {
+        monedasPorFecha[fecha].forEach((moneda, index) => {
+            let tr = document.createElement("tr");
+
+            // Si es la primera moneda de la fecha, agregar una celda que contenga todas las monedas de esa fecha.
+            if (index === 0) {
+                let tdFecha = document.createElement("td");
+                tdFecha.rowSpan = monedasPorFecha[fecha].length;
+                tdFecha.className = "celdaFecha";
+                tdFecha.textContent = fecha;
+                tr.appendChild(tdFecha);
+            }
+
+            // Crea y agrega la celda para el nombre de la moneda.
+            let tdMoneda = document.createElement("td");
+            tdMoneda.textContent = moneda.moneda;
+            tr.appendChild(tdMoneda);
+
+            // Crea y agrega la celda para el valor de compra.
+            let tdCompra = document.createElement("td");
+            tdCompra.textContent = "$" + moneda.compra;
+            tr.appendChild(tdCompra);
+
+            // Crea y agrega la celda para el valor de venta.
+            let tdVenta = document.createElement("td");
+            tdVenta.textContent = "$" + moneda.venta;
+            tr.appendChild(tdVenta);
+
+            // Crea y agrega la celda para la acción de borrar.
+            let tdAccion = document.createElement("td");
+            let iconoBorrar = document.createElement("i");
+            iconoBorrar.className = "fa solid fa-eraser fa-lg";
+
+            // Agrega la función para borrar la moneda.
+            iconoBorrar.addEventListener("click", function () {
+                borrarMoneda(fecha, moneda);
+            });
+
+            tdAccion.appendChild(iconoBorrar);
+            tr.appendChild(tdAccion);
+
+            // Agrega la fila a la tabla.
+            tablaMonedas.appendChild(tr);
+        });
+    });
+}
+
+// Borra una moneda del localStorage y recargar la página.
+function borrarMoneda(fecha, moneda) {
+    let monedasGuardadas = JSON.parse(localStorage.getItem("cotizaciones")) || [];
+    let nuevasMonedasGuardadas = [];
+
+    // Recorre las monedas guardadas y agrega las que no coincidan con la moneda y fecha dadas.
+    for (let i = 0; i < monedasGuardadas.length; i++) {
+        if (!(monedasGuardadas[i].fecha === fecha && monedasGuardadas[i].moneda === moneda.moneda)) {
+            nuevasMonedasGuardadas.push(monedasGuardadas[i]);
+        }
+    }
+
+    // Guarda las nuevas cotizaciones en el localStorage.
+    localStorage.setItem("cotizaciones", JSON.stringify(nuevasMonedasGuardadas));
+    // Recarga la página para actualizar la tabla.
+    location.reload();
+}
+
+// Imprime el contenido de la página.
+function imprSelec(nombre) {
+    var contenido = document.getElementById(nombre).innerHTML;
+    var contenidoOriginal = document.body.innerHTML;
+
+    // Estilos para la impresión.
+    var estiloImpresion = `
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    `;
+
+    document.body.innerHTML = estiloImpresion + contenido;
+    window.print();
+    document.body.innerHTML = contenidoOriginal;
 }
 
 
-/********************************************************************************
-* TABLA / Carga datos                                                                    *
-********************************************************************************/
+// Ejecuta la función cargarMonedasGuardadas cuando el contenido del DOM se haya cargado completamente.
+document.addEventListener("DOMContentLoaded", function () {
+    cargarMonedasGuardadas();
 
-/*DATOS DE PRUEBA DE GENERACIÓN DE LA TABLA */
-let prueba_moneda = ["Blue", "Blue","blue"]
-let prueba_fecha = ["1/1/2000", "3/3/2023","6/5/1984"]
-let prueba_compra = [10,12,33]
-let prueba_venta = [12,33,21]
-let prueba_accion = [1,1,1]
-
-
-//Grafica tabla
-main.removeChild(main.lastChild)
-generar_tabla(prueba_moneda, prueba_fecha, prueba_compra, prueba_venta, prueba_accion)
-
-
-
+    // Agrega la funcion de imprimir al icono de impresora.
+    let iconoImpresora = document.querySelector(".fa-print");
+    if (iconoImpresora) {
+        iconoImpresora.addEventListener("click", function () {
+            imprSelec("imprimir");
+        });
+    }
+});
