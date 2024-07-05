@@ -15,13 +15,13 @@ function cargarMonedasGuardadas() {
     actualizarGrafica(monedasGuardadas);
 }
 
-// Mustra las monedas en una tabla.
+// Muestra las monedas en una tabla.
 function mostrarMonedas(monedas) {
     let tablaMonedas = document.getElementById("tablaMonedas");
     let sinDatos = document.getElementById("sinDatos");
     tablaMonedas.innerHTML = "";
 
-    // Se muestra un mensaje si no hay datos guardados.
+    // Muestra un mensaje si no hay datos guardados.
     if (monedas.length === 0) {
         sinDatos.style.display = "block";
     } else {
@@ -38,20 +38,13 @@ function mostrarMonedas(monedas) {
         monedasPorNombre[moneda.moneda].push(moneda);
     });
 
-    // Crear las filas de la tabla.
+    // Crea las filas de la tabla.
     Object.keys(monedasPorNombre).forEach(nombreMoneda => {
         // Ordena las monedas por fecha en orden descendente.
         let monedasOrdenadas = monedasPorNombre[nombreMoneda].sort(function(a, b) {
-            let fechaA = a.fecha.split('/').reverse().join('');
-            let fechaB = b.fecha.split('/').reverse().join('');
-            
-            if (fechaA > fechaB) {
-                return -1; // Coloca 'a' antes que 'b'
-            } else if (fechaA < fechaB) {
-                return 1; // Coloca 'b' antes que 'a'
-            } else {
-                return 0; // Si las fechas son iguales, se mantiene el orden.
-            }
+            let fechaA = new Date(a.fecha);
+            let fechaB = new Date(b.fecha);
+            return fechaB - fechaA;
         });
         
         // Agrega las filas a la tabla HTML.
@@ -147,21 +140,13 @@ function actualizarGrafica(monedas) {
     });
 
     // Ordena las etiquetas de fechas en orden cronológico.
-    function ordenarFechas(etiquetas) {
-        etiquetas.sort((a, b) => {
-            let [diaA, mesA, añoA] = a.split('/').reverse().map(Number);
-            let [diaB, mesB, añoB] = b.split('/').reverse().map(Number);
-    
-            // Comparación directa basada en el formato dd/mm/yyyy
-            if (añoA !== añoB) return añoA - añoB;
-            if (mesA !== mesB) return mesA - mesB;
-            return diaA - diaB;
-        });
-    }
+    etiquetas.sort((a, b) => {
+        let fechaA = new Date(a);
+        let fechaB = new Date(b);
+        return fechaA - fechaB;
+    });
 
-    ordenarFechas(etiquetas);
-
-    // Crea datasets para la gráfica por cada nombre de moneda.
+    // Crea los datos para la gráfica por cada nombre de moneda.
     let datasets = Object.keys(datosPorMoneda).map(nombreMoneda => {
         let data = etiquetas.map(fecha => datosPorMoneda[nombreMoneda][fecha] || null);
         return {
@@ -200,7 +185,7 @@ function actualizarGrafica(monedas) {
     });
 }
 
-// Sirve para conseguir un color aleatorio que luego será aplicado a la gráfica.
+// Genera un color aleatorio para la gráfica.
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';

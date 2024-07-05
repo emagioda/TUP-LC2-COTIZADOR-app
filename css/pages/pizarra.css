@@ -50,10 +50,8 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    /*height: 52vh;*/
     margin: 0px 60px;
     padding: 10px;
-   /* min-width: max-content;*/
 }
 
 table {

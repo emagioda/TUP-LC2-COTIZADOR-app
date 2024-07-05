@@ -10,8 +10,8 @@
 ********************************************************************************/
 let main = document.querySelector("main");
 
-//VARIABLES QUE USO PARA LOS BOTONES DE FAVORITOS
-let moneda_marcada = [false, false, false, false, false, false, false, false, false, false, false]
+// VARIABLES QUE USO PARA LOS BOTONES DE FAVORITOS
+let moneda_marcada = [false, false, false, false, false, false, false, false, false, false, false];
 
 /* 
 Uso este array en la llamada a la funcion 'generar_tabla()' para identificar luego en que moneda 
@@ -27,9 +27,11 @@ const lista_monedas = ["Oficial",
     "Euro",
     "Real Brasileño",
     "Peso Chileno",
-    "Peso Uruguayo"]
+    "Peso Uruguayo"];
 
-
+/********************************************************************************
+* FUNCION: GENERAR TABLA                                                        *
+********************************************************************************/
 function generar_tabla(datos, tipo_moneda) {
 
     let tabla = document.createElement("table");
@@ -48,90 +50,84 @@ function generar_tabla(datos, tipo_moneda) {
     elemento_i.className = "fa solid fa-star fa-lg"
     elemento_i.id = "estrella1"
 
-
-
-    //Lee el array donde se guarda el estado de las estrellas y le asigna "azul" si True o "gray" si False
+    // Lee el array donde se guarda el estado de las estrellas y le asigna "azul" si True o "gray" si False
     for (let i = 0; i < lista_monedas.length; ++i) {
-        if (lista_monedas[i] == tipo_moneda) {
-            if (moneda_marcada[i] == true) {
-                elemento_i.style.color = "blue"
+        if (lista_monedas[i] === tipo_moneda) {
+            if (moneda_marcada[i]) {
+                elemento_i.style.color = "blue";
             } else {
-
-                elemento_i.style.color = "gray"
+                elemento_i.style.color = "gray";
             }
+            break;
         }
     }
 
-
-    //Evento seleccionar estrella.
+    // Seleccionar estrella.
     elemento_i.addEventListener("click", function () {
-
-        //Llamada a funcion de guardar los datos de usuarios en local storage
-        guardarDatos(datos)
-
+        // Se guardan los datos de la cotización.
+        guardarDatos(datos);
+        // Cambia el color de la estrella para indicar que ya hay u dato guardado para ese dia.
         for (let i = 0; i < lista_monedas.length; ++i) {
-            if (lista_monedas[i] == tipo_moneda) {
-                if (moneda_marcada[i] == true) {
-                    elemento_i.style.color = "gray"
-                } else {
-                    elemento_i.style.color = "blue"
+            if (lista_monedas[i] === tipo_moneda) {
+                if (!moneda_marcada[i]) { // Si no está marcada
+                    elemento_i.style.color = "blue";
+                    moneda_marcada[i] = true; // Marcar como true
                 }
+                break;
             }
         }
     });
 
 
-    //Columna 1
+    // Columna 1
     td1.className = "celdaTipoMoneda"
     td1.rowSpan = "2";
     td1.textContent = datos.moneda + " - " + datos.nombre
     td1.style.fontWeight = "700"
 
-    //Columna 2
+    // Columna 2
     td2.className = "fila1"
     td2.textContent = "COMPRA"
 
-    //Columna 3
+    // Columna 3
     td3.className = "fila1"
     td3.textContent = "VENTA"
 
-    //Columna 4
+    // Columna 4
     td4.rowSpan = "2"
     td4.appendChild(elemento_i)
 
-    //Agrega columnas a fila 1
+    // Agrega columnas a fila 1
     tr1.appendChild(td1)
     tr1.appendChild(td2)
     tr1.appendChild(td3)
     tr1.appendChild(td4)
 
-    //Columna 1 fila 2
+    // Columna 1 fila 2
     td5.className = "fila2"
     td5.textContent = "$ " + datos.compra
     td5.style.fontWeight = "700"
 
-
-    //Columna 2 fila 2
+    // Columna 2 fila 2
     td6.className = "fila2"
     td6.textContent = "$ " + datos.venta
     td6.style.fontWeight = "700"
 
-    //Agrega fila 2
+    // Agrega fila 2
     tr2.appendChild(td5)
     tr2.appendChild(td6)
 
-    //Agrega filas a la tabla
+    // Agrega filas a la tabla
     tabla.appendChild(tr1);
     tabla.appendChild(tr2);
 
-    //Agrega tabla al main
+    // Agrega tabla al main
     main.appendChild(tabla)
 }
 
 /********************************************************************************
 * FUNCION: GUARDA COTIZACIONES DE USUARIO EN LOCAL STORAGE                      *
 ********************************************************************************/
-
 function guardarDatos(datos) {
     let cotizacionesGuardadas = JSON.parse(localStorage.getItem('cotizaciones')) || [];
     let fechaActual = new Date().toLocaleDateString();
@@ -165,16 +161,18 @@ function guardarDatos(datos) {
 * FUNCION: TRAE LAS COTIZACIONES GUARDADAS Y GENERA LOS ESTADOS DE LAS ESTRELLAS*
 ********************************************************************************/
 function array_estrellas() {
+    let cotizaciones = JSON.parse(localStorage.getItem("cotizaciones")) || [];
+    let fechaActual = new Date().toLocaleDateString();
 
-    cotizaciones = JSON.parse(localStorage.getItem("cotizaciones"))
-
+    // Verifica si hay cotizaciones y si son del día actual
     if (cotizaciones.length > 0) {
         for (let i = 0; i < cotizaciones.length; ++i) {
-
-            for (let j = 0; j < moneda_marcada.length; ++j) {
-
-                if (cotizaciones[i]["moneda"] == lista_monedas[j]) {
-                    moneda_marcada[j] = true
+            if (cotizaciones[i]["fecha"] === fechaActual) {
+                for (let j = 0; j < moneda_marcada.length; ++j) {
+                    if (cotizaciones[i]["moneda"] === lista_monedas[j]) {
+                        moneda_marcada[j] = true;
+                        break;
+                    }
                 }
             }
         }
@@ -182,17 +180,17 @@ function array_estrellas() {
 }
 
 /********************************************************************************
-* FUNCION: FILTRAR LA SELECCIÓN DE MONEDAS DE LA LISTA E IMPRIMIR TABLA                  *
+* FUNCION: FILTRAR LA SELECCIÓN DE MONEDAS DE LA LISTA E IMPRIMIR TABLA       *
 ********************************************************************************/
 let array_cotizacion = JSON.parse(localStorage.getItem("CotizacionActual"));
 const selecMoneda = document.getElementById("selectMoneda");
 
 selecMoneda.addEventListener("change", function () {
 
-    array_estrellas()
+    array_estrellas();
 
     while (main.lastChild) {
-        main.removeChild(main.lastChild)
+        main.removeChild(main.lastChild);
     }
 
     switch (selecMoneda.value) {
@@ -205,7 +203,6 @@ selecMoneda.addEventListener("change", function () {
             generar_tabla(array_cotizacion[2], lista_monedas[8]);
             generar_tabla(array_cotizacion[3], lista_monedas[9]);
             generar_tabla(array_cotizacion[4], lista_monedas[10]);
-
             break;
 
         case "Dolar Oficial":
@@ -252,10 +249,10 @@ selecMoneda.addEventListener("change", function () {
             generar_tabla(array_cotizacion[4], lista_monedas[10]);
             break;
     }
-})
+});
 
 /********************************************************************************
-* FUNCION: FECHA Y HORA DE ACTUALIZACIÓN                                                 *
+* FUNCION: FECHA Y HORA DE ACTUALIZACIÓN                                       *
 ********************************************************************************/
 function actualizarFechaHora() {
     let actual_date = new Date();
@@ -270,13 +267,14 @@ function actualizarFechaHora() {
     document.getElementById("fecha_actualizacion").textContent = fecha_actualizacion;
 }
 
-setInterval(actualizarFechaHora, 300000);
-actualizarFechaHora();
-
 /********************************************************************************
 * GENERAL                                                                       *
 ********************************************************************************/
 
+// Llamar a array_estrellas() para que se ejecute al inicio
+array_estrellas();
+
+// Generar las tablas iniciales
 for (let i = 0; i < 7; ++i) {
     generar_tabla(array_cotizacion[0][i], lista_monedas[i]);
 }
@@ -284,3 +282,7 @@ generar_tabla(array_cotizacion[1], lista_monedas[7]);
 generar_tabla(array_cotizacion[2], lista_monedas[8]);
 generar_tabla(array_cotizacion[3], lista_monedas[9]);
 generar_tabla(array_cotizacion[4], lista_monedas[10]);
+
+// Actualizar fecha y hora cada 5 minutos
+setInterval(actualizarFechaHora, 300000);
+actualizarFechaHora();

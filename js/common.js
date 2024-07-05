@@ -14,12 +14,12 @@ const comentarios = [
     {
         img: 'img/Steve_Jobs.jpg',
         nombre: 'Steve Jobs',
-        texto: 'El equipo de desarrollo hizo un gran trabajo. La calidad de la página es sobresaliente. ¡Felicitaciones!            '
+        texto: 'El equipo de desarrollo hizo un gran trabajo. La calidad de la página es sobresaliente. ¡Felicitaciones!'
     },
     {
         img: 'img/Bill_Gates.jpg',
         nombre: 'Bill Gates',
-        texto: 'La atención al cliente es excepcional. Siempre resuelven mis dudas rápidamente. ¡Muy agradecido!              '
+        texto: 'La atención al cliente es excepcional. Siempre resuelven mis dudas rápidamente. ¡Muy agradecido!'
     }
 ];
 
@@ -32,12 +32,6 @@ function rotarComentarios() {
     document.querySelector('.comentario-contenido h2').textContent = comentarios[comentarioActual].nombre;
     document.querySelector('.comentario-contenido p').textContent = comentarios[comentarioActual].texto;
 }
-
-// Mostrar el primer comentario al cargar la página
-document.addEventListener("DOMContentLoaded", function () {
-    rotarComentarios();
-    setInterval(rotarComentarios, 6000);
-});
 
 /********************************************************************************
 * BOTONES DE LA BARRA LATERAL                                                   *
@@ -140,49 +134,36 @@ function actualizarMigasDePan(nombrePagina) {
         migasDePan.appendChild(texto);
     }
 }
+
 /********************************************************************************
 * FETCH                                                                         *
 ********************************************************************************/
 
-let array_cotizacion = []
-let array_db_cotizacion = []
+let array_cotizacion = [];
 
 async function fetch_datos() {
     try {
-        await fetch("https://dolarapi.com/v1/dolares")
-            .then(response => response.json())
-            .then(data => array_cotizacion[0] = data);
+        const urls = [
+            "https://dolarapi.com/v1/dolares",
+            "https://dolarapi.com/v1/cotizaciones/eur",
+            "https://dolarapi.com/v1/cotizaciones/brl",
+            "https://dolarapi.com/v1/cotizaciones/clp",
+            "https://dolarapi.com/v1/cotizaciones/uyu"
+        ];
 
-        await fetch("https://dolarapi.com/v1/cotizaciones/eur")
-            .then(response => response.json())
-            .then(data => array_cotizacion[1] = data);
-
-        await fetch("https://dolarapi.com/v1/cotizaciones/brl")
-            .then(response => response.json())
-            .then(data => array_cotizacion[2] = data);
-
-        await fetch("https://dolarapi.com/v1/cotizaciones/clp")
-            .then(response => response.json())
-            .then(data => array_cotizacion[3] = data);
-
-        await fetch("https://dolarapi.com/v1/cotizaciones/uyu")
-            .then(response => response.json())
-            .then(data => array_cotizacion[4] = data);
+        const requests = urls.map(url => fetch(url).then(response => response.json()));
+        array_cotizacion = await Promise.all(requests);
 
         localStorage.setItem("CotizacionActual", JSON.stringify(array_cotizacion));
     } catch (error) {
         console.error('Error al obtener datos de la API:', error);
-
     }
 }
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    fetch_datos()
-})
 
 document.addEventListener("DOMContentLoaded", function () {
     fetch_datos();
     setInterval(fetch_datos, 300000);
+    rotarComentarios();
+    setInterval(rotarComentarios, 6000);
     actualizarMigasDePan('Inicio');
 });

@@ -1,9 +1,7 @@
-/* Estilos generales para el HTML */
 html {
     font-family: sans-serif;
 }
 
-/* Estilos para el encabezado */
 header {
     display: flex;
     flex-direction: column;
@@ -11,60 +9,54 @@ header {
 }
 
 header h3 i {
-    color: rgb(151, 110, 55); 
+    color: rgb(151, 110, 55);
 }
 
 header h3 i:hover {
     color: rgb(214, 202, 152);
 }
 
-/* Estilos para las celdas de la tabla */
 td i {
-    color: rgb(255, 255, 255); 
+    color: rgb(255, 255, 255);
 }
 
 td i:hover {
-    color: rgb(173, 158, 100); 
+    color: rgb(173, 158, 100);
 }
 
-/* Estilos para el contenido principal */
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Estilos para la tabla */
 table {
-    border: 2px solid rgb(129, 104, 60); 
-    border-radius: 5px; 
-    background-color: rgb(255, 225, 161); 
-    color: rgb(57, 55, 50); 
-    font-size: larger; 
-    box-shadow: 0px 0px 10px 2px rgb(170, 131, 58); 
+    border: 2px solid rgb(129, 104, 60);
+    border-radius: 5px;
+    background-color: rgb(255, 225, 161);
+    color: rgb(57, 55, 50);
+    font-size: larger;
+    box-shadow: 0px 0px 10px 2px rgb(170, 131, 58);
 }
 
-/* Estilos para las celdas del cuerpo de la tabla */
 tbody td {
-    height: 2vh; 
-    width: 8%; 
-    text-align: center; 
-    color: rgb(249, 235, 154); 
-    background-color: rgb(137, 98, 59); 
+    height: 2vh;
+    width: 8%;
+    text-align: center;
+    color: rgb(249, 235, 154);
+    background-color: rgb(137, 98, 59);
     border-radius: 2px;
-    font-size: medium; 
+    font-size: medium;
 }
 
-/* Estilos para la celda de fecha */
 .celdaFecha {
-    font-size: large; 
-    font-weight: 800; 
+    font-size: large;
+    font-weight: 800;
 }
 
-/* Estilos para el mensaje de no datos */
 .sinDatos {
     display: none;
-    color: red; 
-    font-style: italic; 
+    color: red;
+    font-style: italic;
     margin-top: 10px;
 }
