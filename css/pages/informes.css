@@ -22,16 +22,25 @@ body h2 {
     height: 70px;
 }
 
+#graficoContainer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
 #graficas {
+    width: 40%;
+    height: 20vh;
     border: 1px solid rgb(153, 91, 34);
     border-radius: 10px;
-    /*height: 70vh;*/
+    box-sizing: border-box;
 }
 
 caption {
     text-align: start;
     margin-bottom: 15px;
-
 }
 
 caption i {
@@ -42,7 +51,6 @@ div select {
     width: 80%;
     border-radius: 5px;
 }
-
 
 /* TABLA */
 table {

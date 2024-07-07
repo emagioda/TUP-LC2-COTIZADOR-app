@@ -148,14 +148,34 @@ let array_cotizacion = []
 let array_db_cotizacion = []
 
 async function fetch_datos() {
-    await fetch("https://dolarapi.com/v1/dolares").then(response => response.json()).then(data => array_cotizacion[0] = data)
-    await fetch("https://dolarapi.com/v1/cotizaciones/eur").then(response => response.json()).then(data => array_cotizacion[1] = data);
-    await fetch("https://dolarapi.com/v1/cotizaciones/brl").then(response => response.json()).then(data => array_cotizacion[2] = data);
-    await fetch("https://dolarapi.com/v1/cotizaciones/clp").then(response => response.json()).then(data => array_cotizacion[3] = data);
-    await fetch("https://dolarapi.com/v1/cotizaciones/uyu").then(response => response.json()).then(data => array_cotizacion[4] = data);
+    try {
+        await fetch("https://dolarapi.com/v1/dolares")
+            .then(response => response.json())
+            .then(data => array_cotizacion[0] = data);
 
-    localStorage.setItem("CotizacionActual", JSON.stringify(array_cotizacion))
+        await fetch("https://dolarapi.com/v1/cotizaciones/eur")
+            .then(response => response.json())
+            .then(data => array_cotizacion[1] = data);
+
+        await fetch("https://dolarapi.com/v1/cotizaciones/brl")
+            .then(response => response.json())
+            .then(data => array_cotizacion[2] = data);
+
+        await fetch("https://dolarapi.com/v1/cotizaciones/clp")
+            .then(response => response.json())
+            .then(data => array_cotizacion[3] = data);
+
+        await fetch("https://dolarapi.com/v1/cotizaciones/uyu")
+            .then(response => response.json())
+            .then(data => array_cotizacion[4] = data);
+
+        localStorage.setItem("CotizacionActual", JSON.stringify(array_cotizacion));
+    } catch (error) {
+        console.error('Error al obtener datos de la API:', error);
+
+    }
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     fetch_datos()

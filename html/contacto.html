@@ -16,48 +16,40 @@
     <div id="titulo">
         <h2>Contacto web cotizaciones</h2>
     </div>
+
     <!------------------------ FORMULARIO DE CONTACTO ------------------------>
 
     <form id="formulario" action="" method="post">
-        <h2>
-            Datos de contacto
-        </h2>
+        <h2>Datos de contacto</h2>
 
         <div class="formLabel">
             <label for="from_name">Nombre:</label>
         </div>
-
-        <input type="text" name="from_name" id="from_name" class="input1"><br><br>
-
-        <div class="formLabel">
-            <label for="email">Email: </label>
-        </div>
-        <input type="email" id="email" class="input1"><br><br>
+        <input type="text" name="from_name" id="from_name" class="input1" required><br><br>
 
         <div class="formLabel">
-            <label for="message">Mensaje: </label>
+            <label for="email">Email:</label>
         </div>
-        <textarea name="message" id="message" class="input2"></textarea>
+        <input type="email" id="email" class="input1" required><br><br>
+
+        <div class="formLabel">
+            <label for="message">Mensaje:</label>
+        </div>
+        <textarea name="message" id="message" class="input2" required></textarea>
 
         <button type="reset" id="formBotonLimpiar">Limpiar</button>
         <input type="submit" id="formBotonEnviar" value="Enviar">
-
     </form>
-    </div>
 
     <!------------------------ DATOS DE LA INSTITUCIÓN ------------------------>
 
     <div id="texto">
-        Si tiene alguna sugerencia o inconveniente
-        por favor, complete el siguente formulario y envíelo.
-        Lo contactaremos a la brevedad.
-        <br>
-        <br>
-        Esta web esta desarrollada usando: <a href="https://dolarapi.com/" target="_blank">https://dolarapi.com</a>
+        Si tiene alguna sugerencia o inconveniente por favor, complete el siguiente formulario y envíelo. Lo contactaremos a la brevedad.
+        <br><br>
+        Esta web está desarrollada usando: <a href="https://dolarapi.com/" target="_blank">https://dolarapi.com</a>
     </div>
 
     <div id="contacto">
-
         <div id="contactoTexto">
             <h2>Contacto</h2>
             Universidad Tecnológica Nacional <br>
