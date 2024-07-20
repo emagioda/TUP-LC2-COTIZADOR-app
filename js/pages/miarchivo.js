@@ -78,7 +78,6 @@ function cargarMonedasGuardadas() {
             // Agrega la función para borrar la moneda.
             iconoBorrar.addEventListener("click", function () {
                 borrarMoneda(fecha, moneda);
-                mostrarAlerta('Cotización borrada!', 'success');
             });
 
             tdAccion.appendChild(iconoBorrar);
@@ -105,9 +104,11 @@ function borrarMoneda(fecha, moneda) {
     }
 
     localStorage.setItem("cotizaciones", JSON.stringify(nuevasMonedasGuardadas));
+    mostrarAlerta('Cotización borrada!', 'success');
     
-    // Recarga la página para actualizar la tabla.
-    location.reload();
+    setTimeout(function() {
+        location.reload();
+    }, 1000);
 }
 
 /********************************************************************************
