@@ -135,34 +135,7 @@ function actualizarMigasDePan(nombrePagina) {
     }
 }
 
-/********************************************************************************
-* FETCH                                                                         *
-********************************************************************************/
-
-let array_cotizacion = [];
-
-async function fetch_datos() {
-    try {
-        const urls = [
-            "https://dolarapi.com/v1/dolares",
-            "https://dolarapi.com/v1/cotizaciones/eur",
-            "https://dolarapi.com/v1/cotizaciones/brl",
-            "https://dolarapi.com/v1/cotizaciones/clp",
-            "https://dolarapi.com/v1/cotizaciones/uyu"
-        ];
-
-        const requests = urls.map(url => fetch(url).then(response => response.json()));
-        array_cotizacion = await Promise.all(requests);
-
-        localStorage.setItem("CotizacionActual", JSON.stringify(array_cotizacion));
-    } catch (error) {
-        console.error('Error al obtener datos de la API:', error);
-    }
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-    fetch_datos();
-    setInterval(fetch_datos, 300000);
     rotarComentarios();
     setInterval(rotarComentarios, 6000);
     actualizarMigasDePan('Inicio');

@@ -78,6 +78,7 @@ function cargarMonedasGuardadas() {
             // Agrega la función para borrar la moneda.
             iconoBorrar.addEventListener("click", function () {
                 borrarMoneda(fecha, moneda);
+                mostrarAlerta('Cotización borrada!', 'success');
             });
 
             tdAccion.appendChild(iconoBorrar);

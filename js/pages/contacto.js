@@ -13,14 +13,12 @@ document.getElementById('formulario')
     // Envía el formulario utilizando EmailJS
     emailjs.sendForm(serviceID, templateID, this)
       .then(() => {
-        // Si el envío es exitoso, cambiar el valor del botón a "Enviar"
+        // Envío exitoso.
         btn.value = 'Enviar';
-        // Muestra una alerta indicando que el correo fue enviado con éxito.
-        alert('Email enviado con éxito!');
+        mostrarAlerta('Email enviado con éxito!', 'success');
       }, (err) => {
-        // Si ocurre un error, cambiar el valor del botón a "Enviar"
+        // Error de envío.
         btn.value = 'Enviar';
-        // Muestra una alerta con el error.
-        alert(JSON.stringify(err));
+        mostrarAlerta('Error al enviar el Email', 'error');
       });
   });

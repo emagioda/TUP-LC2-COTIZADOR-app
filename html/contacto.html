@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
     <link rel="stylesheet" href="../css/pages/contacto.css">
+    <link rel="stylesheet" href="../css/alertas.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="../js/pages/contacto.js" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript"> emailjs.init('CcBydL0h8LKhz67zL')</script>
+    <script src="../js/alertas.js"></script>
+
 </head>
 
 <body>
@@ -40,6 +43,7 @@
         <button type="reset" id="formBotonLimpiar">Limpiar</button>
         <input type="submit" id="formBotonEnviar" value="Enviar">
     </form>
+    <div id="alerta" class="ocultar"></div>
 
     <!------------------------ DATOS DE LA INSTITUCIÓN ------------------------>
 
