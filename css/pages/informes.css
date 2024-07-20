@@ -105,3 +105,56 @@ tbody td {
         padding: 8px 8px;
     }
 }
+
+
+
+
+/************ FORMULARIO ENVIOS ************/
+#formulario-envio {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    border-radius: 10px;
+    color: #645a2d;
+    background-color: #ccba69;
+    font-weight: bold;
+    z-index: 1000;
+    opacity: 0.9; 
+    display: none;
+}
+
+
+.alerta.success {
+    background-color: #28a745; 
+}
+
+.alerta.warning {
+    background-color: #ffc107; 
+}
+
+.alerta.error {
+    background-color: #dc3545; 
+}
+
+.ocultar {
+    display: none;
+}
+
+.input1{
+    width: 100%;
+    border-radius: 10px;
+    height: 20px;
+    border-width: 0px;
+}
+
+.botones{
+    background-color: #b39049;
+    color: #ffffff;
+    border-radius: 10px;
+    border-width: 0px;
+    width: 35%;
+    height: 30px;
+    font-size: medium;
+}

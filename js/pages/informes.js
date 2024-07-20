@@ -202,3 +202,57 @@ document.addEventListener("DOMContentLoaded", function () {
     cargarMonedasGuardadas();
     document.getElementById("selectMoneda").addEventListener("change", filtrarMonedas);
 });
+
+
+/********************************************************************************
+* FORMULARIO COMPARTIR INFORMACIÓN                                              *
+********************************************************************************/
+const etiqueta_compartir = document.getElementById("compartir-info");
+
+
+etiqueta_compartir.addEventListener("click", ()=>{
+    mostrarAlertaFormulario("datos");
+})
+
+
+function mostrarAlertaFormulario(datos) {
+    const alerta = document.getElementById('formulario-envio');
+    alerta.innerHTML = 
+               `<form id="envios" action="" method="post">
+                <h2>Datos de del destinatario</h2>
+        
+                <div class="formLabel">
+                    <label for="from_name">Nombre:</label>
+                </div>
+                <input type="text" name="from_name" id="from_name" class="input1" required><br><br>
+        
+                <div class="formLabel">
+                    <label for="email">Email:</label>
+                </div>
+                <input type="email" id="email" class="input1" required><br><br>
+        
+                <button type="submit" class="botones" id="boton-enviar">Enviar</button>
+                <button type="button" class="botones" id="boton-cerrar">Cerrar</button>
+            </form>`
+
+        
+    //alerta.className = `formulario-envio ${datos}`;
+    alerta.classList.remove('ocultar');
+    alerta.style.display = 'block';
+
+    const boton_cerrar = document.getElementById("boton-cerrar");
+    const formulario = document.getElementById("envios");
+
+
+    //Evento boton cerrar
+    boton_cerrar.addEventListener("click", ()=>{
+        alerta.classList.add('ocultar');
+        alerta.style.display = 'none';
+    });
+
+    //Evento formulario enviar
+    formulario.addEventListener("submit", ()=>{
+        alert("envio...");
+    });
+
+}
