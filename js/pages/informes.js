@@ -212,7 +212,6 @@ etiqueta_compartir.addEventListener("click", () => {
     mostrarFormulario("datos");
 })
 
-
 function mostrarFormulario(datos) {
     const form_envio = document.getElementById('formulario-envio');
     form_envio.innerHTML =
@@ -262,11 +261,9 @@ function mostrarFormulario(datos) {
         emailjs.sendForm(serviceID, templateID, this)
             .then(() => {
                 boton_enviar.value = 'Enviar';
-                console.log("Email enviado con éxito")
                 form_envio.style.display = 'none'; 
             }, (err) => {
                 boton_enviar.value = 'Enviar';
-                alert(JSON.stringify(err));
                 mostrarAlerta('Error al enviar el correo', 'error');
             });
     });
