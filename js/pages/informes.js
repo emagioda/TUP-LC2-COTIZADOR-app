@@ -231,6 +231,8 @@ function mostrarFormulario(datos) {
         
                 <input type="submit" id="formBotonEnviar" value="Enviar">
                 <button type="button" id="formBotonCerrar">Cerrar</button>
+                <div id="alerta" class="ocultar"></div>
+
             </form>`
     form_envio.classList.remove('ocultar-form');
     form_envio.style.display = 'block';
