@@ -41,12 +41,12 @@ function mostrarMonedas(monedas) {
     // Crea las filas de la tabla.
     Object.keys(monedasPorNombre).forEach(nombreMoneda => {
         // Ordena las monedas por fecha en orden descendente.
-        let monedasOrdenadas = monedasPorNombre[nombreMoneda].sort(function(a, b) {
+        let monedasOrdenadas = monedasPorNombre[nombreMoneda].sort(function (a, b) {
             let fechaA = new Date(a.fecha);
             let fechaB = new Date(b.fecha);
             return fechaB - fechaA;
         });
-        
+
         // Agrega las filas a la tabla HTML.
         monedasOrdenadas.forEach((moneda, index) => {
             let tr = document.createElement("tr");
@@ -203,22 +203,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("selectMoneda").addEventListener("change", filtrarMonedas);
 });
 
-
 /********************************************************************************
 * FORMULARIO COMPARTIR INFORMACIÓN                                              *
 ********************************************************************************/
 const etiqueta_compartir = document.getElementById("compartir-info");
 
-
-etiqueta_compartir.addEventListener("click", ()=>{
-    mostrarAlertaFormulario("datos");
+etiqueta_compartir.addEventListener("click", () => {
+    mostrarFormulario("datos");
 })
 
 
-function mostrarAlertaFormulario(datos) {
-    const alerta = document.getElementById('formulario-envio');
-    alerta.innerHTML = 
-               `<form id="envios" action="" method="post">
+function mostrarFormulario(datos) {
+    const form_envio = document.getElementById('formulario-envio');
+    form_envio.innerHTML =
+        `<form id="envios" action="" method="post">
                 <h2>Datos de del destinatario</h2>
         
                 <div class="formLabel">
@@ -231,28 +229,44 @@ function mostrarAlertaFormulario(datos) {
                 </div>
                 <input type="email" id="email" class="input1" required><br><br>
         
-                <button type="submit" class="botones" id="boton-enviar">Enviar</button>
-                <button type="button" class="botones" id="boton-cerrar">Cerrar</button>
+                <input type="submit" id="formBotonEnviar" value="Enviar">
+                <button type="button" id="formBotonCerrar">Cerrar</button>
             </form>`
+    form_envio.classList.remove('ocultar-form');
+    form_envio.style.display = 'block';
 
-        
-    //alerta.className = `formulario-envio ${datos}`;
-    alerta.classList.remove('ocultar');
-    alerta.style.display = 'block';
-
-    const boton_cerrar = document.getElementById("boton-cerrar");
-    const formulario = document.getElementById("envios");
+    const boton_cerrar = document.getElementById("formBotonCerrar");
+    const boton_enviar = document.getElementById('formBotonEnviar');
 
 
     //Evento boton cerrar
-    boton_cerrar.addEventListener("click", ()=>{
-        alerta.classList.add('ocultar');
-        alerta.style.display = 'none';
+    boton_cerrar.addEventListener("click", () => {
+        form_envio.classList.add('ocultar-form');
+        form_envio.style.display = 'none';
     });
 
     //Evento formulario enviar
-    formulario.addEventListener("submit", ()=>{
-        alert("envio...");
+    document.getElementById('envios').addEventListener('submit', function (event) {
+        event.preventDefault();
+        boton_enviar.value = 'Enviando...';
+        mostrarAlerta('El correo fue enviado correctamente', 'success');
+
+
+        // Identificadores del servicio de EmailJS
+        const serviceID = 'default_service';
+        const templateID = 'template_9bxqdxa';
+
+        // Envía el formulario
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                boton_enviar.value = 'Enviar';
+                console.log("Email enviado con éxito")
+                form_envio.style.display = 'none'; 
+            }, (err) => {
+                boton_enviar.value = 'Enviar';
+                alert(JSON.stringify(err));
+                mostrarAlerta('Error al enviar el correo', 'error');
+            });
     });
 
 }

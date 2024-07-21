@@ -8,5 +8,5 @@ function mostrarAlerta(mensaje, tipo) {
     setTimeout(() => {
         alerta.classList.add('ocultar');
         alerta.style.display = 'none';
-    }, 2500);
+    }, 2000);
 }
