@@ -42,8 +42,10 @@ function mostrarMonedas(monedas) {
     Object.keys(monedasPorNombre).forEach(nombreMoneda => {
         // Ordena las monedas por fecha en orden descendente.
         let monedasOrdenadas = monedasPorNombre[nombreMoneda].sort(function (a, b) {
-            let fechaA = new Date(a.fecha);
-            let fechaB = new Date(b.fecha);
+            let [diaA, mesA, añoA] = a.fecha.split("/").map(Number);
+            let [diaB, mesB, añoB] = b.fecha.split("/").map(Number);
+            let fechaA = new Date(añoA, mesA - 1, diaA);
+            let fechaB = new Date(añoB, mesB - 1, diaB);
             return fechaB - fechaA;
         });
 
@@ -101,6 +103,7 @@ function mostrarMonedas(monedas) {
         });
     });
 }
+
 
 // Filtra las monedas mostradas según la selección del usuario.
 function filtrarMonedas() {
@@ -250,8 +253,6 @@ function mostrarFormulario(datos) {
     document.getElementById('envios').addEventListener('submit', function (event) {
         event.preventDefault();
         boton_enviar.value = 'Enviando...';
-        mostrarAlerta('El correo fue enviado correctamente', 'success');
-
 
         // Identificadores del servicio de EmailJS
         const serviceID = 'default_service';
@@ -261,7 +262,8 @@ function mostrarFormulario(datos) {
         emailjs.sendForm(serviceID, templateID, this)
             .then(() => {
                 boton_enviar.value = 'Enviar';
-                form_envio.style.display = 'none'; 
+                form_envio.style.display = 'none';
+                mostrarAlerta('El correo fue enviado correctamente', 'success');
             }, (err) => {
                 boton_enviar.value = 'Enviar';
                 mostrarAlerta('Error al enviar el correo', 'error');
